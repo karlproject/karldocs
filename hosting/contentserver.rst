@@ -1,15 +1,15 @@
-==============
-Content Server
-==============
+=========
+DB Server
+=========
 
 The machines running the app servers are considered disposible VMs.
-They get their content from a content server.  That is, a PostgreSQL
+They get their content from a database server.  That is, a PostgreSQL
 database for RelStorage and pgtextindex.
 
 Architecture
 ============
 
-In phase 1, we'll keep ZEO but run it on the content server VM.
+In phase 1, we'll keep ZEO but run it on the db server VM.
 
 - blobs
 - memcache
