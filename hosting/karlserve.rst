@@ -39,8 +39,8 @@ Benefits
 - Very easy to make someone have a dedicated VM by only routing
   certain request paths to them
 
-Usage
-=====
+Customization Packages
+======================
 
 You can start with a vanilla KARL that has no customization.  If some
 customization is needed beyond the existing configuration knobs, you
@@ -51,3 +51,6 @@ can point a customer site to customization package via a command::
 Such configuration is persistent, stored in the customer's ZODB.
 Doing so tells that customer's site to load its ZCML registry from the
 customizaton package, rather than the vanilla ZCML in the core.
+
+The ``somecustomization`` package needs to be available on the
+``PYTHONPATH``.

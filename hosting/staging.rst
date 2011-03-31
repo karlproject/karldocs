@@ -13,47 +13,6 @@ acceptance testing of the branch.
 This document describes the staging server operations for satisfying
 both needs.
 
-
-karl04 (app server, same configuration as karl02)
-karl05 (db server, same configuration as karl03 but 500 GB disk)
-
-osf-karl.hoster.com - proposed name until the switchover
-
-- single universal staging, one ssl certificate, https
-
-- continuous integration
-
-- consumes lots of disk space, ram, but not cpu
-
-###
-
-[11:12am] chrisrossi: like i mentioned above, we might need to ask them to bump RAM on karl04, taking into account runnig multiple branches.
-[11:12am] chrisrossi: getting new production syncing nightly with old production
-[11:13am] repaul: ok
-[11:13am] chrisrossi: setting up tools for staging that know about branching setup.
-[11:13am] chrisrossi: getting nightly syncs from new production to staging
-[11:14am] chrisrossi: figuring out how to see if svn or git have new checkins before doing update in order to do frequent polling (but not frequent building) for continuous integration on staging branches.
-[11:14am] chrisrossi: i screwed up and forgot to kick off a manual sync from old production to new production last night.
-[11:15am] chrisrossi: i wanted to see how long it took.
-[11:15am] chrisrossi: the last one took over 14 hours which is ridiculous, but if we get it going every night hopeuflly that number goes way down.
-[11:16am] repaul: yeh
-[11:17am] repaul: so on that list above, wanna take a stab at a date?
-[11:18am] chrisrossi: ok for, old prod -> new prod sync, i'll do one manually tonight and then put it in cron for tomorrow night forward.
-[11:18am] repaul: ok
-[11:20am] chrisrossi: hopefully by tomorrow i should also have reconfigured staging to work with syncing from new prod (worked before but needs to sync from zodb instead of relstorage), be able to update all of the branches at once, and maybe have continuous integration.
-[11:21am] rmarianski: chrisrossi: as you do the manual one tonight, would it be possible for you to document the steps?
-[11:21am] chrisrossi: yeah.
-[11:21am] rmarianski: i owe you guys an update on the documentation, i was going to update the docs that paul started
-[11:21am] chrisrossi: i can document it now:
-[11:21am] chrisrossi: $ /home/chris/production/current/bin/karlserve upgrade --migrate
-[11:21am] chrisrossi: wait many, many hours.
-[11:21am] chrisrossi: done
-[11:22am] chrisrossi: oops.
-[11:22am] chrisrossi:  /home/karl/etc...
-[11:24am] rmarianski: in terms of the important config options for that though ... sync.zodb_uri dsn ... that kinda thing
-###
-
-
 Premise
 =======
 
@@ -83,8 +42,13 @@ Gameplan
 
 The hoster will set up an appserver virtual machine (``karl04``
 hostname) at ``karltest.hoster.com`` where we stage the trunk and
-branches for different customers.  This appserver will be paired with
-a dbserver virtual machine (``karl05`` hostname).
+branches for different customers.  The appserver won't consume many
+CPU resources, but will require a decent amount of RAM for
+simultaneous testing.  Very little disk space is needed.
+
+This appserver will be paired with
+a dbserver virtual machine (``karl05`` hostname), which will require a
+big disk (for all the duplicate copies of content.)
 
 For the website, the URL scheme will work as follows::
 
@@ -93,7 +57,9 @@ For the website, the URL scheme will work as follows::
 
 Dissecting this:
 
-- ``https`` signifies that we are indeed running this over SSL.
+- ``https`` signifies that we are indeed running this over SSL.  With
+  this scheme, only one SSL certificate is needed for staging multiple
+  branches for multiple customers.
 
 - ``karltest`` is the hostname in the hoster's domain used for staging
   of branches.
@@ -156,9 +122,14 @@ Update
 
 #. Run Rossi's update tool
 
-Q
-===
+Continuous Integration
+======================
 
-- Overview of updater tool
+The update process makes it very cheap/fast to get a branch site
+incrementally updated with production content.  In fact, there is no
+good reason not to automate that process and have a branch that gets
+updated nightly/hourly.
 
-- What is left in the customization package?
+With such a model we can also update the trunk continuously, thus
+offering a model of "continuous integration" of software and content.
+
