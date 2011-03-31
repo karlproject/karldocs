@@ -1,12 +1,12 @@
 =========
-MultiKARL
+karlserve
 =========
 
 For smaller KARLs that don't need customization, consume few
 resources, and all run the same version of software, Hosters can offer
-"MultiKARL".
+"karlserve".
 
-With MultiKARL, you run many KARLs in a single, common Python process.
+With karlserve, you run many KARLs in a single, common Python process.
 This Python process (the KarlServer) dispatches requests to different
 WSGI applications.  Each KARL customer has its own WSGI application,
 and thus its own customization package, ZCML registry, database

@@ -39,7 +39,7 @@ management) to use when they are referring to a "site".
   will be setup on up to 3 other instances: ``osf-test2`` and
   ``osf-test3``.
 
-- We might, via MultiKARL, have many staging customers on one staging
+- We might, via karlserve, have many staging customers on one staging
   instance.  So there might be ``osf-test1`` and
   ``anothercustomer-test1``.  These will be the same branch.
 

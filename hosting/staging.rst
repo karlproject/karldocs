@@ -14,21 +14,6 @@ This document describes the staging server operations for satisfying
 both needs.
 
 
-karltest.gocept.com/test3/osf
-
-we limit mailin processing to one branch per customer
-
-- staging server
-- branch
-- customer
-- whole URL is the branch site
-- branch1 is the mailin-enabled branch
-- 4 total branches, including "staging"
-- svn switch
-- same buildout, buildouts rarely branch
-- branch1 is always mail
-- osf/ariadne.karltest.hoster.com for staged mail on branch1
-
 karl04 (app server, same configuration as karl02)
 karl05 (db server, same configuration as karl03 but 500 GB disk)
 
@@ -118,6 +103,23 @@ Dissecting this:
 - ``branch1`` is the branch of the KARL source code being evaluated.
   See below on *Buildouts and Branches* for more information.
 
+Mail URLs work as follows::
+
+  some-community@osf.karlstaging.hoster.com
+  some-community@anothercustomer.karlstaging.hoster.com
+
+Since we only have one axis available (osf.* and anothercustomer.*),
+we can't easily route incoming mail to multiple branches.  Thus, by
+convention, staging mail gets sent to::
+
+  https://karltest.hoster.com/branch1/osf
+  https://karltest.hoster.com/branch1/anothercustomer
+
+We will have up to four branch URLs/directories available for use at
+once.  Any of these can be switched to some branch that needs testing.
+By convention, branch1 will be the "staging" branch for the trunk, to
+test before going into production.
+
 Buildouts and Branches
 ======================
 
@@ -128,7 +130,6 @@ This is done manually.  When you configure the branch directory, you
 "switch" the branch being used by the software.  In some rare cases,
 the "customization package" is also on a branch and needs to be
 switched.
-
 
 Create
 ==========

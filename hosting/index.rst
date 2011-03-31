@@ -10,8 +10,8 @@ delineates responsibilities between Hosters and Developers.
 
    virtualmachines
    appserver
-   multikarl
    dbserver
+   karlserve
    webserver
    mailserver
    monitoring
