@@ -17,9 +17,15 @@ delineates responsibilities between Hosters and Developers.
    monitoring
    updates
    loadbalancing
+   bugreporting
 
 To Do
 =====
 
 - Robert, what's the documented gameplan for public-facing mail
   server/relay?
+
+- Do we run Selenium against the production site after it is updated?
+  (Risky, might be useless.)
+
+- Section on GSA sync, background processes

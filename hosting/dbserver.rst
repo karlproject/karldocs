@@ -12,7 +12,9 @@ Architecture
 In phase 1, we'll keep ZEO but run it on the db server VM.
 
 - blobs
+- history-free
 - memcache
+- pgtextindex
 
 Hosting Team Responsibilities
 =============================
