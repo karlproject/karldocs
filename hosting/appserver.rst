@@ -24,6 +24,8 @@ accepts connections from the :term:`webserver`.
 XXX discuss daemon/cron jobs that do background work, as well as an
 operations.  Discuss how user accounts and logins work.
 
+XXX link to rossi's karlhosting docs as complete/authoritative.
+
 Restart Supervisor
 ------------------
 
@@ -54,4 +56,4 @@ Hoster Responsibilities
 
 - Know how to do a restart of supervisor, appserver, etc.
 
-- Ensure VHM connection to 
+- Ensure VHM connection to webserver

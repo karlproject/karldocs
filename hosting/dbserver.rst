@@ -14,6 +14,8 @@ Some details:
 
 - Blobs are stored on disk under ``var``.
 
+- Each customer runs as a different system user for ZEO.
+
 Phase 2 Architecture
 ====================
 
@@ -32,7 +34,13 @@ Hosting Team Responsibilities
 =============================
 
 - Backup/restore
-- Rotate log files as needed
+
+- Rotate log files as needed (either via Supervisor or some other
+  facility.)
+
 - Monitoring and restart
+
 - Software upgrades as appropriate
+
 - Memcache
+

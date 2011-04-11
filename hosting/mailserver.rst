@@ -12,9 +12,6 @@ Architecture
 - The mail relay delivers to a mail server for KARL, which only
   accepts mail from the mail relay
 
-- The connection between the mail relay and mail server is, if
-  possible, over TLS
-
 Hosting Team Responsibilities
 =============================
 
@@ -34,11 +31,12 @@ Hosting Team Responsibilities
 
 - Software upgrades as appropriate
 
+- Analyzing inbound/outbound log files looking for problems, on an
+  hourly basis
+
 Anti-responsibilities:
 
 - Basics of filters and vacation lists
-
-- Analyzing inbound/outbound log files looking for problems
 
 - Subprocess that connects to repoze.postoffice
 
