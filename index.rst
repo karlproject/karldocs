@@ -13,6 +13,8 @@ Contents:
 
    hosting/index
 
+   glossary
+
 Indices and tables
 ==================
 

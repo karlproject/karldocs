@@ -3,7 +3,9 @@ KARL Hosters Guide
 ==================
 
 This document covers the deployment architecture for KARL. It also
-delineates responsibilities between Hosters and Developers.
+delineates responsibilities between Hosters and Developers. On each
+document, responsibilities are listed at the end for Hosters and
+Devteam.
 
 .. toctree::
    :maxdepth: 2
@@ -15,7 +17,8 @@ delineates responsibilities between Hosters and Developers.
    webserver
    mailserver
    monitoring
-   updates
+   production
+   staging
    loadbalancing
    bugreporting
 

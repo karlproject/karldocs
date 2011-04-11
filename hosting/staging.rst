@@ -133,3 +133,12 @@ updated nightly/hourly.
 With such a model we can also update the trunk continuously, thus
 offering a model of "continuous integration" of software and content.
 
+Email Whitelist/Blacklist
+=========================
+
+On staging instances we try to be very careful about accidentally
+blasting out email alerts to users in a community, pointing them at
+"test file upload #47" messages.  The buildout has an ``etc``
+directory with a whitelist on it, specifying what email addresses are
+allow to be sent KARL-generated emails.
+

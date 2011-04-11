@@ -13,3 +13,7 @@ to listen for requests.
 - Monitoring and restart, anything related to keeping it running
 - Software upgrades as appropriate
 
+Hoster Responsibilities
+=======================
+
+- Manage proxy connection to KARL/Paster

@@ -2,19 +2,31 @@
 DB Server
 =========
 
-The machines running the app servers are considered disposible VMs.
-They get their content from a database server.  That is, a PostgreSQL
-database for RelStorage and pgtextindex.
+The machines running each :term:`appserver` are considered disposible
+VMs.  They get their content from a :term:`dbserver`.  That is, a
+PostgreSQL database for RelStorage and pgtextindex.
 
-Architecture
-============
+Phase 1 Architecture
+====================
 
-In phase 1, we'll keep ZEO but run it on the db server VM.
+In phase 1, we'll keep ZEO but run it on the :term:`dbserver` VM.
+Some details:
 
-- blobs
-- history-free
-- memcache
+- Blobs are stored on disk under ``var``.
+
+Phase 2 Architecture
+====================
+
+- RelStorage with PostgreSQL
+
+- History-free
+
+- Memcache
+
 - pgtextindex
+
+- Each customer gets its own database username/password, to provide
+  isolation
 
 Hosting Team Responsibilities
 =============================

@@ -60,4 +60,3 @@ Notes
 
 - The VMs might not be ssh-able from the outside.  You might have to
   go through a proxy to reach them.
-
