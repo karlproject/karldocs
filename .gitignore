@@ -1,0 +1,6 @@
+bin
+eggs
+include
+lib
+.*.cfg
+docs/_build
