@@ -1,6 +1,11 @@
 bin
+develop-eggs
+docs/_build
 eggs
 include
 lib
+var
 .*.cfg
-docs/_build
+*.egg-info
+*.pyc
+.*.swp

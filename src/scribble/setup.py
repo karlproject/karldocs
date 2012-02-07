@@ -1,9 +1,8 @@
 from setuptools import setup, find_packages
 
 requires = [
-    'pyramid>=1.3a5',
-    'pyramid_exclog',
-    'waitress'
+    'pyramid',
+    'Sphinx',
     ]
 
 setup(name='scribble',
@@ -17,5 +16,7 @@ setup(name='scribble',
       entry_points = """\
       [paste.app_factory]
       main = scribble:main
+      [console_scripts]
+      build_sphinx_web = scribble.build_sphinx_data:main
       """,
       )

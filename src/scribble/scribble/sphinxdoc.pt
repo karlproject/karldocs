@@ -1,0 +1,13 @@
+<!doctype HTML>
+<html>
+    <head>
+        <title>${context.title}</title>
+        <tal:link replace="structure context.css"/>
+        <tal:script replace="structure context.js|None"/>
+    </head>
+    <body>
+        <tal:relbar replace="structure context.relbar"/>
+        <tal:body replace="structure context.body"/>
+        <tal:sidebar replace="structure context.sidebar"/>
+    </body>
+</html>
