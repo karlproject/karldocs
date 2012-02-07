@@ -23,23 +23,27 @@ Collection API
 GET http://my.host/repo/collection1
 
 Returns [
-    {id: 1, ...}
-    {id: 2, ...}
+    [id1, {...}],
+    [id2, {...}]
 ]
+
+Last-Modified header is set appropriately
 
 POST http://my.host/repo/collection1 {...}
 
-Returns id, an integer
+Returns id of new item
 
 Adds an arbitrary item to the collection.  The item is arbitrary JSON.  'id' is
-assigned by scribble and should not be included in the posted data.
+assigned by scribble.
 
 Item API
 ========
 
 GET http://my.host/repo/collection1/1
 
-returns {id: 1, ...}
+returns {...}
+
+Last-Modified header is set appropriately. X-Scribble-Id is set to item's id.
 
 Retrieves an item's JSON representation.
 
@@ -47,8 +51,7 @@ PUT http://my.host/repo/collection1/1 {...}
 
 Returns nothing
 
-Updates an item's JSON data.  'id', if included in the post data, will be 
-ignored.
+Updates an item's JSON data.
 
 DELETE http://my.host/repo/collection1/1
 
