@@ -32,3 +32,17 @@ To Do
   (Risky, might be useless.)
 
 - Section on GSA sync, background processes
+
+- Setting timezone
+
+- Each user has a ~/production with subdirectories for various
+  instances, current symlinked to correct number
+
+- current has a bin/supervisorctl
+
+Hoster FAQ
+==========
+
+#. How do I restart the app server?
+
+#. Who is allowed to login?
