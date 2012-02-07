@@ -6,7 +6,8 @@
 Welcome to KARL's documentation!
 ================================
 
-Contents:
+TTW.
+
 
 .. toctree::
    :maxdepth: 2
