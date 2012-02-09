@@ -1,0 +1,143 @@
+================================
+KIP 2: In-Page UX With Pushdowns
+================================
+
+The :doc:`Popper <kip-0001>` layout provides a fresh, new UX for
+KARL. UX productivity is one of Popper's goals. Pushdowns help this by
+providing quick access to task-specific information and actions,
+without disrupting the current page.
+
+:doc:`Chatter <kip-0004>` and Radar are two elements in KARL which
+provide a pushdown panel.
+
+.. note::
+
+   Popper also has dropdowns menus, which have a different purpose and
+   UX.
+
+Goals
+=====
+
+- *Non-disruptive*. Don't navigate away from the current page. Instead,
+  insert the pushdown into the curent page, making it visually clear
+  that the existing page content is still "down there".
+
+- *Limited*. The pushpanel doesn't replace the task or facility it
+  references. Instead, it provides a summary of the most common content
+  or tasks.
+
+- *Task specific*. Attach a pushpanel to a specific set of
+  functionality and focus on certain tasks that need to be made
+  productive.
+
+- *Fast*. Related to non-disruptive, the UX needs to go the extra mile
+  to be responsive.
+
+- *Similar, but different*. The look and feel of the pushpanel should
+  clearly connote Popper, and pushpanels should have a common set of
+  assumption for each pushpanel. But the pushpanel should feel like a
+  different UX embedded into the current page, with a different set of
+  assumptions than the chrome or the content. In a way,
+  it's a precursor for a webapp-oriented UX inside the web-oriented
+  Popper UX.
+
+- *Attractive*. Like Popper, the pushdown UX needs to feel modern,
+  well-thought, internally consistent, graceful degradation on other form
+  factors, etc.
+
+Details
+=======
+
+- Project the menuitem (e.g. "Weather") slightly into the box,
+  to visually connote the connection. More specifically,
+  don't use triangle to mark this menu item as selected.
+
+- Take the full width
+
+- Consistent use of a button or link that takes you to the full screen
+  for that task (e.g. "Go to Chatter")
+
+- Open in-place, making it non-disruptive to the page you are on
+
+- Open/close by same click target
+
+- New incoming data doesn't disturb the currently-drawn content. For
+  example, pushpanels shouldn't redraw the list of Chatter items if you
+  have the Chatter pushpanel open. It becomes irritating to have
+  something you're looking at, move or even disappear.
+
+- The LiveSearch searchbox is overlayed, meaning, no longer visible,
+  rather than scrolling it down with the section header.
+
+- Opening the pushpanel should always show the last results
+  immediately, then go get new results if needed.
+
+- Try to avoid scrolling lists of content in a pushpanel. Show what can
+  fit, indicate that there is overflow, and make the user click away to
+  see the full listing.
+
+Multi-Level Pushpanels
+======================
+
+Most pushpanels should be one-level deep. That is,
+what you see on the screen is all you're going to see,
+everything else is a navigation away from the pushpanel.
+
+The Radar, though, is multi-level:
+
+- Tabs, represented by pill boxes, divide the Radar into high-level
+  areas.
+
+- Clicking a new tab replaces the contents of the panel (first level
+  deep.)
+
+- Some items in the panel, when clicked, don't navigate away from the
+  page. Instead, they swipe in something which displays inline. For
+  example, filling out a form for the lunch menu (second-level.)
+
+- Re-opening shows you where you were the last time you opened (first
+  or second level.)
+
+Form Factor Considerations
+===========================
+
+Pushpanels in general have some considerations based on the
+height/width of the browser, particularly on changes (resize browser,
+change orientation of table.)
+
+- Avoid setting the pushpanel height with JS on page load. If the
+  browser height is changed after that, you're in trouble.
+
+Implementation
+==============
+
+- Try to avoid using JS to calculate height. That can cause problems:
+  browser window re-size, tablet/phone orientation change
+  (portrait to landscape), poor/glitchy performance on mobile devices,
+  etc.
+
+- Done as a Bottlecap panel, to allow overriding, etc.
+
+- The contents of the pushdown are completely up to the panel. It can
+  do client-side rendering or insert HTML from the server,
+  use microtemplates or draw directly, etc.
+
+Mockup
+======
+
+.. raw:: html
+
+  <img height="370" width="753"
+   src="https://agendaless.mybalsamiq.com/projects/popper/Pushdown.png"
+   />
+
+Of note:
+
+- "Weather" pushes a little into the pushpanel content,
+  to imply a connection
+
+- You click "Weather" again to dismiss it
+
+- The section header ("Some Community") is still visible below
+
+- You get the full width

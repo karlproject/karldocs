@@ -6,13 +6,13 @@
 Welcome to KARL's documentation!
 ================================
 
-TTW.
 
 
 .. toctree::
    :maxdepth: 2
 
    hosting/index
+   specs/index
 
    glossary
 

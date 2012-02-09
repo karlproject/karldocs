@@ -1,0 +1,20 @@
+======================
+KIP 5: Chatter Phase 2
+======================
+
+Chatter Pushdown
+================
+
+Jane re-chatters or replies to a quip
+-------------------------------------
+
+When reading the quips in the pushdown panel, Jane sees something
+interesting that she'd like to share. She hovers over the quip,
+sees a button for re-chattering and a button for replying,
+and clicks on the appropriate button.
+
+Spec:
+
+- Q: If that simply copies something into the quick-add,
+  what if you had something there already?
+

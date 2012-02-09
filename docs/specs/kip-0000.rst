@@ -1,0 +1,12 @@
+===============================
+KIP 0: KARL Improvement Process
+===============================
+
+Document how we write down and track things.
+
+Details
+=======
+
+- Provide stable interlinking between tools, e.g. specifications and
+  issue tracker. Not just on individual items such as the link to a
+  specification, but collections of items, like a tag or release.
