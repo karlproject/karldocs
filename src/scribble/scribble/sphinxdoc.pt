@@ -3,11 +3,19 @@
     <head>
         <title>${context.title}</title>
         <tal:link replace="structure context.css"/>
-        <tal:script replace="structure context.js|None"/>
+        <tal:script replace="structure context.script"/>
     </head>
     <body>
         <tal:relbar replace="structure context.relbar"/>
-        <tal:body replace="structure context.body"/>
-        <tal:sidebar replace="structure context.sidebar"/>
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        <tal:body replace="structure context.body"/>
+                    </div>
+                </div>
+            </div>
+            <tal:sidebar replace="structure context.sidebar"/>
+        </div>
     </body>
 </html>
