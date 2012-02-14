@@ -3,6 +3,7 @@ from setuptools import setup, find_packages
 requires = [
     'pyramid',
     'Sphinx',
+    'SQLAlchemy', # Undeclared (inexplicable) dependency of sphinx webapp support
     ]
 
 setup(name='scribble',
