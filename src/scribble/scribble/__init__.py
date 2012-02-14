@@ -19,6 +19,6 @@ def main(global_config, **local_config):
         return SiteRoot(sphinx_data)
 
     config = Configurator(root_factory=get_root, settings=settings)
-    config.scan('scribble.views')
+    config.scan('scribble')
     config.add_static_view('static', static_dir)
     return config.make_wsgi_app()
