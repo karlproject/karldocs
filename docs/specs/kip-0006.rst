@@ -1,9 +1,17 @@
-======================
-KIP 5: Chatter Phase 2
-======================
+===============================================
+KIP 6: Chatter Phase 2, Chatter Full UX Minimum
+===============================================
 
-Chatter Pushdown
-================
+:doc:`kip-0004` covered the features needed for Chatter's pushpanel.
+That is the summary view of Chatter. In this KIP,
+we still stay with the minimum needed to launch. But we cover the full
+UX for Chatter. That is, what you get when you navigate to the URL for
+Chatter.
+
+.. note::
+
+   The word ``quip`` is a placeholder for the final word we'll use to
+   name an item that is Chattered.
 
 Jane re-chatters or replies to a quip
 -------------------------------------
@@ -17,4 +25,11 @@ Spec:
 
 - Q: If that simply copies something into the quick-add,
   what if you had something there already?
+
+Notes
+=====
+
+- Retweet
+
+- Threads of conversation
 
