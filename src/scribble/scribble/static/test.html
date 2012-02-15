@@ -6,13 +6,41 @@
           rel="stylesheet"
             />
     <link href="SlickGrid/bootstrap/css/bootstrap-responsive.min.css"
-          rel="stylesheet" />
-    <link href="SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
-    <link rel="stylesheet" href="SlickGrid/slick.grid.css" type="text/css"/>
+          rel="stylesheet"/>
+    <link href="SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="SlickGrid/slick.grid.css"
+          type="text/css"/>
     <link rel="stylesheet" href="test.css" type="text/css"/>
 </head>
 <body>
-<div class="slickGrid" style="width:600px;height:500px;"></div>
+<div id="controlpanel">
+    <h1 align="center">Control Panel</h1>
+    
+    <div>
+        <label for="set_collection_name">Select Collection</label>
+        <select id="set_collection_name"></select>
+    </div>
+    <div>
+        <button id="delete_all">Delete All Items</button>
+        <button id="reload">Reload</button>
+    </div>
+    <form id="add_item_form">
+        <label for="add_item_name">Add Item</label>
+        <textarea id="add_item_name">xx</textarea>
+        <div>
+            <input type="submit" value="Add"/>
+        </div>
+    </form>
+    <pre>
+{
+ "id": "93nlm232332",
+ "title":"Task 1",
+ "duration": 5
+}
+    </pre>
+</div>
+<div class="slickGrid" style="width:400px;height:500px;"></div>
 
 <script src="SlickGrid/lib/jquery-1.7.min.js"></script>
 <script src="SlickGrid/lib/jquery.event.drag-2.0.min.js"></script>
