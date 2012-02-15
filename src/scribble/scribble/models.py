@@ -146,7 +146,7 @@ class Collection(object):
             item.mtime = float(pipedata.pop(0))
             item.__parent__ = self
             item.__name__ = id
-            items.append(item)
+            items.append((id, item))
         assert not pipedata # sanity check, pipedata should be exhausted
         return items
 

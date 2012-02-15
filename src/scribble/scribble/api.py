@@ -15,7 +15,7 @@ def get_collections(context, request):
 @view_config(context=Collection, request_method='GET', renderer='json')
 def get_collection(context, request):
     request.response.last_modified = context.mtime()
-    return [(i.__name__, json.loads(i)) for i in context.items()]
+    return [(id, json.loads(item)) for id, item in context.items()]
 
 
 @view_config(context=Collection, request_method='POST', renderer='json')

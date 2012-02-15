@@ -19,7 +19,7 @@ class TestAPI(unittest.TestCase):
         item2.__name__ = '456'
         context = mock.Mock()
         context.mtime.return_value = 42.0
-        context.items.return_value = [item1, item2]
+        context.items.return_value = [('123', item1), ('456', item2)]
         request = mock.Mock()
         collection = get_collection(context, request)
         self.assertEqual(collection, [('123', u'abc'), ('456', u'def')])

@@ -222,10 +222,12 @@ class TestCollection(unittest.TestCase):
         pipe = self.redis.pipeline.return_value
         pipe.execute.return_value = ['"Test One"', '42.0', '"Test Two"', '43.0']
         friends = self.make_one()
-        item1, item2 = friends.items()
+        (id1, item1), (id2, item2) = friends.items()
+        self.assertEqual(id1, '12345')
         self.assertEqual(item1, '"Test One"')
         self.assertEqual(item1.__parent__, friends)
         self.assertEqual(item1.__name__, '12345')
+        self.assertEqual(id2, '23456')
         self.assertEqual(item2, '"Test Two"')
         self.assertEqual(item2.__parent__, friends)
         self.assertEqual(item2.__name__, '23456')
