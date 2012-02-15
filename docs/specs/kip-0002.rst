@@ -69,12 +69,29 @@ Details
 - The LiveSearch searchbox is overlayed, meaning, no longer visible,
   rather than scrolling it down with the section header.
 
-- Opening the pushpanel should always show the last results
-  immediately, then go get new results if needed.
-
 - Try to avoid scrolling lists of content in a pushpanel. Show what can
   fit, indicate that there is overflow, and make the user click away to
   see the full listing.
+
+Why Not Modal Dialogs?
+======================
+
+Some websites have a dialog window that pops up on top of the content,
+allowing extra operations without disrupting the current work. Some
+have "modal" windows which mask the background,
+requiring you to dismiss the temporary work before interacting again
+with the primary work.
+
+We felt this approach had some flaws. First, dialogs,
+modal or otherwise, aren't universal enough to be immediately obvious.
+Second, people get confused by those windows, not knowing how to get
+out of them. Because the dialog is modal, they can't get back to what
+they were doing or dismiss the window. Finally, dialogs generally don't
+have much screen real estate available.
+
+With this pushdown approach, you still have all of what you need,
+further down. You can just scroll down to what you were doing if you
+need to refer to the primary content.
 
 Multi-Level Pushpanels
 ======================

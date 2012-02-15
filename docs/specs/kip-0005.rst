@@ -1,24 +1,29 @@
-======================
-KIP 5: Chatter Phase 1
-======================
+================================
+KIP 5: Chatter Phase 1, Pushdown
+================================
 
-As mentioned in :doc:`kip-0004`, x.
+As mentioned in :doc:`kip-0004`, we are breaking the Chatter work in
+phases, for analysis/development/deployment simplicity.
 
-In this phase, we have a useful system ready for end users but only
-from the Chatter pushdown panel. This phase and the second phase (the
-full Chatter UX) provide enough for an initial deployment.
+This phase is focused on the Chatter functionality available in the
+Chatter :doc:`pushdown <kip-0002>` panel. This is not enough
+functionality to deploy a basic Chatter, but is a useful starting
+point. Since we don't have the full UX, we might have to dummy up some
+data (e.g. friends, messages.)
 
 .. note::
 
    The word ``quip`` is a placeholder for the final word we'll use to
    name an item that is Chattered.
 
-Chatter Pushdown
-================
+Features
+========
 
-In :doc:`kip-0002` we discuss "pushdown" panels as a way to inject an
-alternate UX into the current page without disruption. Chatter has a
-pushdown panel:
+Details
+=======
+
+User Stories
+============
 
 Below are users stories related to that panel.
 
@@ -35,7 +40,9 @@ Spec:
 - Show the number of "unread" items based on what Notification says is
   for Chatter, for you
 
-- Q: How do we track the concept of unread, especially if we can't show
+Questions:
+
+- How do we track the concept of unread, especially if we can't show
   all the items in the first 5 batch-full?
 
 
@@ -93,8 +100,38 @@ Spec:
 Jane visits the full Chatter UX
 -------------------------------
 
+Notes
+=====
 
--
+- Explain read vs. unread
+
+- Display read vs. unread in different colors
+
+- Ellipsis when there are more read, "1 more new item" for more unread
+
+- Always show a minimum number, even if read
+
+- Avatars for people
+
+- Notifications in-KARL
+
+- Connection to Feeds
+
+- Vectors
+
+  - People (me, friends, colleagues, staff, all)
+
+  - Topics (aka tags)
+
+  - References (retweets)
+
+  - Replies
+
+  - Featured
+
+- Explain @ and #, as well as #this, tags
+
+- Explain the drop-down on Speak
 
 - See that I have new quips.
 
