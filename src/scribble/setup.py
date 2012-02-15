@@ -2,6 +2,7 @@ from setuptools import setup, find_packages
 
 requires = [
     'pyramid',
+    'redis',
     'Sphinx',
     'SQLAlchemy', # Undeclared (inexplicable) dependency of sphinx webapp support
     ]

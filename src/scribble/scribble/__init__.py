@@ -12,11 +12,11 @@ def main(global_config, **local_config):
     sphinx_build = settings['sphinx_build']
     if not os.path.exists(sphinx_build):
         build_sphinx_data(settings)
-    sphinx_data = os.path.join(sphinx_build, 'data')
+    settings['sphinx_data'] = os.path.join(sphinx_build, 'data')
     static_dir = os.path.join(sphinx_build, 'static')
 
     def get_root(request):
-        return SiteRoot(sphinx_data)
+        return SiteRoot(settings)
 
     config = Configurator(root_factory=get_root, settings=settings)
     config.scan('scribble')
