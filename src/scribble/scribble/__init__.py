@@ -21,4 +21,5 @@ def main(global_config, **local_config):
     config = Configurator(root_factory=get_root, settings=settings)
     config.scan('scribble')
     config.add_static_view('static', static_dir)
+    config.add_static_view('scribble_static', 'scribble:static')
     return config.make_wsgi_app()
