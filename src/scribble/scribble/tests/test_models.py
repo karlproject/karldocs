@@ -248,6 +248,3 @@ class TestCollection(unittest.TestCase):
         self.assertEqual(self.make_one().mtime(), 56.0)
         self.redis.get.assert_called_once_with(
             'scribble.collection.friends.mtime')
-
-
-
