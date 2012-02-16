@@ -11,8 +11,8 @@
     <link rel="stylesheet"
           href="SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css"
           type="text/css"/>
-    <link rel="stylesheet" href="SlickGrid/examples/examples.css"
-          type="text/css"/>
+    <link rel="stylesheet"
+          href="SlickGrid/examples/examples.css"/>
     <link rel="stylesheet" href="example4-model.css"/>
     <link rel="stylesheet"
           href="SlickGrid/controls/slick.columnpicker.css"
@@ -23,36 +23,17 @@
 <body>
 <div style="position:relative">
     <div style="width:600px;">
-        <div class="grid-header" style="width:100%">
+        <div class="grid-header" style="width:100%; height:30px">
             <label>SlickGrid</label>
       <span style="float:right" class="ui-icon ui-icon-search"
             title="Toggle search panel"
             onclick="toggleFilterRow()"></span>
         </div>
         <div id="myGrid" style="width:100%;height:500px;"></div>
-        <div id="pager" style="width:100%;height:20px;"></div>
     </div>
 
     <div class="options-panel">
-        <b>Search:</b>
-        <hr/>
         <div style="padding:6px;">
-            <label style="width:200px;float:left">Show tasks with % at
-                least: </label>
-
-            <div style="padding:2px;">
-                <div style="width:100px;display:inline-block;"
-                     id="pcSlider"></div>
-            </div>
-            <br/>
-            <label style="width:200px;float:left">And title
-                including:</label>
-            <input type=text id="txtSearch" style="width:100px;">
-            <br/><br/>
-            <button id="btnSelectRows">Select first 10 rows</button>
-
-            <br/>
-
             <h2>Demonstrates:</h2>
             <ul>
                 <li>a filtered Model (DataView) as a data source instead
@@ -75,11 +56,7 @@
                 <li>events: onCellChange, onAddNewRow, onKeyDown,
                     onSelectedRowsChanged, onSort
                 </li>
-                <li><font color=red>NOTE:</font> all filters are
-                    immediately applied to new/edited rows
-                </li>
                 <li>Handling row selection against model changes.</li>
-                <li>Paging.</li>
                 <li>inline filter panel</li>
             </ul>
         </div>
@@ -89,8 +66,6 @@
 <div id="inlineFilterPanel"
      style="display:none;background:#dddddd;padding:3px;color:black;">
     Show tasks with title including <input type="text" id="txtSearch2">
-    and % at least &nbsp;
-    <div style="width:100px;display:inline-block;" id="pcSlider2"></div>
 </div>
 
 <script src="SlickGrid/lib/jquery-1.7.min.js"></script>
@@ -103,7 +78,6 @@
 <script src="SlickGrid/plugins/slick.rowselectionmodel.js"></script>
 <script src="SlickGrid/slick.grid.js"></script>
 <script src="SlickGrid/slick.dataview.js"></script>
-<script src="SlickGrid/controls/slick.pager.js"></script>
 <script src="SlickGrid/controls/slick.columnpicker.js"></script>
 
 <script src="example4-model.js"></script>

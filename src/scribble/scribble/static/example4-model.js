@@ -2,13 +2,14 @@ var dataView;
 var grid;
 var data = [];
 var columns = [
-    {id:"sel", name:"#", field:"num", behavior:"select", cssClass:"cell-selection", width:40, cannotTriggerInsert:true, resizable:false, selectable:false },
-    {id:"title", name:"Title", field:"title", width:120, minWidth:120, cssClass:"cell-title", editor:Slick.Editors.Text, validator:requiredFieldValidator, sortable:true},
-    {id:"duration", name:"Duration", field:"duration", editor:Slick.Editors.Text, sortable:true},
-    {id:"%", name:"% Complete", field:"percentComplete", width:80, resizable:false, formatter:Slick.Formatters.PercentCompleteBar, editor:Slick.Editors.PercentComplete, sortable:true},
-    {id:"start", name:"Start", field:"start", minWidth:60, editor:Slick.Editors.Date, sortable:true},
-    {id:"finish", name:"Finish", field:"finish", minWidth:60, editor:Slick.Editors.Date, sortable:true},
-    {id:"effort-driven", name:"Effort Driven", width:80, minWidth:20, maxWidth:80, cssClass:"cell-effort-driven", field:"effortDriven", formatter:Slick.Formatters.Checkmark, editor:Slick.Editors.Checkbox, cannotTriggerInsert:true, sortable:true}
+    {id:"sel", name:"#", field:"num", behavior:"select",
+        cssClass:"cell-selection", width:40, cannotTriggerInsert:true,
+        resizable:false, selectable:false },
+    {id:"title", name:"Title", field:"title", width:120, minWidth:120,
+        cssClass:"cell-title", editor:Slick.Editors.Text,
+        validator:requiredFieldValidator, sortable:true},
+    {id:"duration", name:"Duration", field:"duration",
+        editor:Slick.Editors.Text, sortable:true}
 ];
 
 var options = {
@@ -16,13 +17,12 @@ var options = {
     enableAddRow:true,
     enableCellNavigation:true,
     asyncEditorLoading:true,
-    forceFitColumns:false,
+    forceFitColumns:true,
     topPanelHeight:25
 };
 
 var sortcol = "title";
 var sortdir = 1;
-var percentCompleteThreshold = 0;
 var searchString = "";
 
 function requiredFieldValidator(value) {
@@ -35,19 +35,11 @@ function requiredFieldValidator(value) {
 }
 
 function myFilter(item, args) {
-    if (item["percentComplete"] < args.percentCompleteThreshold) {
-        return false;
-    }
-
     if (args.searchString != "" && item["title"].indexOf(args.searchString) == -1) {
         return false;
     }
 
     return true;
-}
-
-function percentCompleteSort(a, b) {
-    return a["percentComplete"] - b["percentComplete"];
 }
 
 function comparer(a, b) {
@@ -75,17 +67,13 @@ $(".grid-header .ui-icon")
 
 $(function () {
     // prepare the data
-    for (var i = 0; i < 50000; i++) {
+    for (var i = 0; i < 50; i++) {
         var d = (data[i] = {});
 
         d["id"] = "id_" + i;
         d["num"] = i;
         d["title"] = "Task " + i;
         d["duration"] = "5 days";
-        d["percentComplete"] = Math.round(Math.random() * 100);
-        d["start"] = "01/01/2009";
-        d["finish"] = "01/05/2009";
-        d["effortDriven"] = (i % 5 == 0);
     }
 
 
@@ -93,7 +81,6 @@ $(function () {
     grid = new Slick.Grid("#myGrid", dataView, columns, options);
     grid.setSelectionModel(new Slick.RowSelectionModel());
 
-    var pager = new Slick.Controls.Pager(dataView, grid, $("#pager"));
     var columnpicker = new Slick.Controls.ColumnPicker(columns, grid, options);
 
 
@@ -107,7 +94,9 @@ $(function () {
     });
 
     grid.onAddNewRow.subscribe(function (e, args) {
-        var item = {"num":data.length, "id":"new_" + (Math.round(Math.random() * 10000)), "title":"New task", "duration":"1 day", "percentComplete":0, "start":"01/01/2009", "finish":"01/01/2009", "effortDriven":false};
+        var item = {"num":data.length, "id":"new_" + (Math.round(Math.random() * 10000)),
+            "title":"New task", "duration":"1 day"
+        };
         $.extend(item, args.item);
         dataView.addItem(item);
     });
@@ -131,28 +120,9 @@ $(function () {
         sortdir = args.sortAsc ? 1 : -1;
         sortcol = args.sortCol.field;
 
-        if ($.browser.msie && $.browser.version <= 8) {
-            // using temporary Object.prototype.toString override
-            // more limited and does lexicographic sort only by default, but can be much faster
-
-            var percentCompleteValueFn = function () {
-                var val = this["percentComplete"];
-                if (val < 10) {
-                    return "00" + val;
-                } else if (val < 100) {
-                    return "0" + val;
-                } else {
-                    return val;
-                }
-            };
-
-            // use numeric sort of % and lexicographic for everything else
-            dataView.fastSort((sortcol == "percentComplete") ? percentCompleteValueFn : sortcol, args.sortAsc);
-        } else {
-            // using native sort with comparer
-            // preferred method but can be very slow in IE with huge datasets
-            dataView.sort(comparer, args.sortAsc);
-        }
+        // using native sort with comparer
+        // preferred method but can be very slow in IE with huge datasets
+        dataView.sort(comparer, args.sortAsc);
     });
 
     // wire up model events to drive the grid
@@ -179,23 +149,8 @@ $(function () {
 
     var h_runfilters = null;
 
-    // wire up the slider to apply the filter to the model
-    $("#pcSlider,#pcSlider2").slider({
-                                         "range":"min",
-                                         "slide":function (event, ui) {
-                                             Slick.GlobalEditorLock.cancelCurrentEdit();
-
-                                             if (percentCompleteThreshold != ui.value) {
-                                                 window.clearTimeout(h_runfilters);
-                                                 h_runfilters = window.setTimeout(updateFilter, 10);
-                                                 percentCompleteThreshold = ui.value;
-                                             }
-                                         }
-                                     });
-
-
     // wire up the search textbox to apply the filter to the model
-    $("#txtSearch,#txtSearch2").keyup(function (e) {
+    $("#txtSearch2").keyup(function (e) {
         Slick.GlobalEditorLock.cancelCurrentEdit();
 
         // clear on Esc
@@ -209,7 +164,6 @@ $(function () {
 
     function updateFilter() {
         dataView.setFilterArgs({
-                                   percentCompleteThreshold:percentCompleteThreshold,
                                    searchString:searchString
                                });
         dataView.refresh();
@@ -232,10 +186,7 @@ $(function () {
     // initialize the model after all the events have been hooked up
     dataView.beginUpdate();
     dataView.setItems(data);
-    dataView.setFilterArgs({
-                               percentCompleteThreshold:percentCompleteThreshold,
-                               searchString:searchString
-                           });
+    dataView.setFilterArgs({searchString:searchString});
     dataView.setFilter(myFilter);
     dataView.endUpdate();
 
