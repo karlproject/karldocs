@@ -34,6 +34,13 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(add_item(context, request), '12345')
         context.add.assert_called_once_with('"Howdy!"')
 
+    def test_add_item_invalid(self):
+        from scribble.api import add_item
+        from pyramid.httpexceptions import HTTPBadRequest
+        request = mock.Mock()
+        request.body = 'Invalid!'
+        self.assertIsInstance(add_item(None, request), HTTPBadRequest)
+
     def test_get_item(self):
         from scribble.api import get_item
         context = mock.Mock()
@@ -57,6 +64,13 @@ class TestAPI(unittest.TestCase):
         update_item(context, request)
         self.assertEqual(context.__parent__['12345'], '"New Data"')
         self.assertEqual(request.response.content_type, 'application/json')
+
+    def test_update_item_invalid(self):
+        from scribble.api import update_item
+        from pyramid.httpexceptions import HTTPBadRequest
+        request = mock.Mock()
+        request.body = 'Bad Data'
+        self.assertIsInstance(update_item(None, request), HTTPBadRequest)
 
     def test_delete_item(self):
         from scribble.api import delete_item
