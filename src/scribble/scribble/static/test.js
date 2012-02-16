@@ -1,8 +1,12 @@
+var dataView;
 var grid;
+var data = [];
 
 var options = {
-    enableCellNavigation:true,
-    enableColumnReorder:false
+    editable: true,
+    enableColumnReorder:false,
+    asyncEditorLoading:true,
+    forceFitColumns:false
 };
 
 function log(val) {
@@ -10,19 +14,15 @@ function log(val) {
 }
 
 function list_collections() {
-    $.ajax({
-               url:'/collections/',
-               dataType:'JSON',
-               cache:false,
-               success:function (collections) {
-                   $('#set_collection_name').empty();
-                   $(collections).each(function (index) {
-                       var d = collections[index];
-                       var o = $('<option/>').val(d).text(d);
-                       $('#set_collection_name').append(o);
-                   })
-               }
-           })
+    $.getJSON('/collections/', function (collections) {
+        $('#set_collection_name').empty();
+        $(collections).each(function (index) {
+            var d = collections[index];
+            var o = $('<option/>').val(d).text(d);
+            $('#set_collection_name').append(o);
+        });
+        get_items(current_collection());
+    })
 }
 
 function current_collection() {
@@ -43,49 +43,60 @@ function add_item(collection, item) {
 }
 
 function get_items(collection) {
+
     $.ajax({
                url:'/collections/' + collection,
-               dataType:'JSON',
+               dataType:'json',
                cache:false,
                success:function (items) {
-                   log(items);
-                   set_grid(items);
+                   var item, key, val;
+                   var new_data = [];
+                   $(items).each(function (index) {
+                       item = items[index];
+                       key = item[0];
+                       val = item[1];
+                       new_data.push(
+                           {
+                               "id":key,
+                               "title":val['title'],
+                               "duration":val['duration']
+
+                           })
+                   });
+                   dataView.beginUpdate();
+                   dataView.setItems(new_data);
+                   grid.invalidateAllRows();
+                   dataView.endUpdate();
+                   grid.render();
                }
            })
 
 }
 
-function set_grid(items) {
-    var item;
-    var key;
-    var val;
-    var new_data = [];
-    $(items).each(function (index) {
-        item = items[index];
-        key = item[0];
-        val = item[1];
-        new_data.push(
-            {
-                "id":key,
-                "title":val['title'],
-                "duration":val['duration']
-
-            })
-    });
-    grid.setData(new_data);
-    grid.render();
+function delete_item(id) {
+    var url = "/collections/" + current_collection() + "/" + id;
+    log("delete: " + url);
+    $.ajax({
+               url:url,
+               type:'DELETE',
+               success:function () {
+                   get_items(current_collection());
+               }
+           });
 }
 
 $(function () {
-
-    // First, get the current list of collections
-    list_collections();
 
     $('#add_item_form').submit(function () {
         var curr = current_collection();
         var item = $('#add_item_name').val();
         add_item(curr, item);
         return false;
+    });
+
+    // Handle a change in collection
+    $('#set_collection_name').bind('change', function () {
+        get_items(current_collection());
     });
 
 
@@ -105,7 +116,6 @@ $(function () {
             })
         })
     });
-
     $('#reload').click(function () {
         get_items(current_collection());
     });
@@ -117,14 +127,25 @@ $(function () {
                cache:false,
                success:function (columns) {
                    // Now get the data
-                   $.ajax({
-                              url:'test-items.json',
-                              dataType:'JSON',
-                              cache:false,
-                              success:function (data) {
-                                  grid = new Slick.Grid(".slickGrid", data, columns, options);
-                              }
-                          });
+                   dataView = new Slick.Data.DataView();
+                   grid = new Slick.Grid(".slickGrid",
+                                         dataView,
+                                         columns,
+                                         options);
+                   grid.setSelectionModel(new Slick.RowSelectionModel());
+                   list_collections();
+                   // Bind delete
+                   grid.onKeyDown.subscribe(function (e) {
+                       if (e.which == 46) {
+                           // Delete was pressed
+                           var sel = grid.getSelectedRows()[0];
+                           var item = dataView.getItem(sel);
+                           delete_item(item.id);
+                       }
+                   });
+
                }
            });
+
+
 });

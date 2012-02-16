@@ -1,5 +1,8 @@
 [
-    {"id": "id", "name":"ID", "field":"id"},
-    {"id":"title", "name":"Title", "field":"title"},
+    {"id": "id", "name":"ID", "field":"id", "behavior": "select",
+        "cssClass": "cell-selection", "minWidth": 40, "resizable": false,
+        "selectable": false},
+    {"id":"title", "name":"Title", "field":"title",
+        "editor": "Slick.Editors.Text", "sortable": true},
     {"id":"duration", "name":"Duration", "field":"duration"}
 ]
