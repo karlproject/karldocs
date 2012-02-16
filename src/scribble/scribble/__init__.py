@@ -2,7 +2,7 @@ import os
 
 from pyramid.config import Configurator
 
-from scribble.build_sphinx_data import build_sphinx_data
+from scribble.build_sphinx_data import build_sphinx_data as build_sphinx
 from scribble.models import SiteRoot
 
 
@@ -11,7 +11,7 @@ def main(global_config, **local_config):
     settings.update(local_config)
     sphinx_build = settings['sphinx_build']
     if not os.path.exists(sphinx_build):
-        build_sphinx_data(settings)
+        build_sphinx(settings)
     settings['sphinx_data'] = os.path.join(sphinx_build, 'data')
     static_dir = os.path.join(sphinx_build, 'static')
 
