@@ -135,7 +135,7 @@ class TestCollection(unittest.TestCase):
         return Collection
 
     def make_one(self):
-        return self.get_class()(self.redis, 'friends')
+        return self.get_class()(self.redis, 'friends', 'test')
 
     @mock.patch('scribble.models.time.time', dummy_time)
     @mock.patch('scribble.models.uuid.uuid1', dummy_uuid)
@@ -143,11 +143,10 @@ class TestCollection(unittest.TestCase):
         friends = self.make_one()
         self.assertEqual(friends.add('"Test Data"'), '12345')
         pipe = self.redis.pipeline.return_value
-        pipe.sadd.assert_called_once_with(
-            'scribble.collection.friends', '12345')
+        pipe.sadd.assert_called_once_with('test.friends', '12345')
         self.assertEqual(pipe.set.mock_calls, [
             mock.call('12345', '"Test Data"'),
-            mock.call('scribble.collection.friends.mtime', '42.0'),
+            mock.call('test.friends.mtime', '42.0'),
             mock.call('12345.mtime', '42.0')])
         pipe.execute.assert_called_once_with()
 
@@ -156,8 +155,7 @@ class TestCollection(unittest.TestCase):
         self.redis.sismember.return_value = False
         with self.assertRaises(KeyError):
             self.make_one()['12345']
-        self.redis.sismember.assert_called_once_with(
-            'scribble.collection.friends', '12345')
+        self.redis.sismember.assert_called_once_with('test.friends', '12345')
 
     def test_getitem(self):
         self.redis.sismember.return_value = True
@@ -171,15 +169,13 @@ class TestCollection(unittest.TestCase):
         self.assertEqual(item.mtime, 42.0)
         self.assertEqual(pipe.get.mock_calls, [
             mock.call('12345'), mock.call('12345.mtime')])
-        self.redis.sismember.assert_called_once_with(
-            'scribble.collection.friends', '12345')
+        self.redis.sismember.assert_called_once_with('test.friends', '12345')
 
     def test_setitem_not_a_member(self):
         self.redis.sismember.return_value = False
         with self.assertRaises(KeyError):
             self.make_one()['12345'] = '"Different Data"'
-        self.redis.sismember.assert_called_once_with(
-            'scribble.collection.friends', '12345')
+        self.redis.sismember.assert_called_once_with('test.friends', '12345')
 
     @mock.patch('scribble.models.time.time', dummy_time)
     def test_setitem(self):
@@ -189,15 +185,14 @@ class TestCollection(unittest.TestCase):
         self.assertEqual(pipe.set.mock_calls, [
             mock.call('12345', '"Different Data"'),
             mock.call('12345.mtime', '42.0'),
-            mock.call('scribble.collection.friends.mtime', '42.0')])
+            mock.call('test.friends.mtime', '42.0')])
         pipe.execute.assert_called_once_with()
 
     def test_delitem_not_a_member(self):
         self.redis.sismember.return_value = False
         with self.assertRaises(KeyError):
             del self.make_one()['12345']
-        self.redis.sismember.assert_called_once_with(
-            'scribble.collection.friends', '12345')
+        self.redis.sismember.assert_called_once_with('test.friends', '12345')
 
     @mock.patch('scribble.models.time.time', dummy_time)
     def test_delitem(self):
@@ -206,10 +201,8 @@ class TestCollection(unittest.TestCase):
         pipe = self.redis.pipeline.return_value
         self.assertEqual(pipe.delete.mock_calls,
                          [mock.call('12345'), mock.call('12345.mtime')])
-        pipe.srem.assert_called_once_with(
-            'scribble.collection.friends', '12345')
-        pipe.set.assert_called_once_with(
-            'scribble.collection.friends.mtime', '42.0')
+        pipe.srem.assert_called_once_with('test.friends', '12345')
+        pipe.set.assert_called_once_with('test.friends.mtime', '42.0')
         pipe.execute.assert_called_once_with()
 
 
@@ -240,13 +233,10 @@ class TestCollection(unittest.TestCase):
     def test_mtime_not_set(self):
         self.redis.get.return_value = None
         self.assertEqual(self.make_one().mtime(), 42.0)
-        self.redis.get.assert_called_once_with(
-            'scribble.collection.friends.mtime')
-        self.redis.set.assert_called_once_with(
-            'scribble.collection.friends.mtime', '42.0')
+        self.redis.get.assert_called_once_with('test.friends.mtime')
+        self.redis.set.assert_called_once_with('test.friends.mtime', '42.0')
 
     def test_mtime(self):
         self.redis.get.return_value = '56.0'
         self.assertEqual(self.make_one().mtime(), 56.0)
-        self.redis.get.assert_called_once_with(
-            'scribble.collection.friends.mtime')
+        self.redis.get.assert_called_once_with('test.friends.mtime')

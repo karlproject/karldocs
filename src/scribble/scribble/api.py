@@ -1,5 +1,6 @@
 import json
 
+from pyramid.httpexceptions import HTTPBadRequest
 from pyramid.view import view_config
 
 from scribble.models import Collections
@@ -20,6 +21,10 @@ def get_collection(context, request):
 
 @view_config(context=Collection, request_method='POST', renderer='json')
 def add_item(context, request):
+    try:
+        json.loads(request.body)
+    except ValueError, e:
+        return HTTPBadRequest(str(e))
     return context.add(request.body)
 
 
@@ -35,6 +40,10 @@ def get_item(context, request):
 
 @view_config(context=Item, request_method='PUT')
 def update_item(context, request):
+    try:
+        json.loads(request.body)
+    except ValueError, e:
+        return HTTPBadRequest(str(e))
     context.__parent__[context.__name__] = request.body
     request.response.content_type = 'application/json'
     return request.response # blank

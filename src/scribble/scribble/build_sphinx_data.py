@@ -12,9 +12,10 @@ def main():
     build_sphinx_data(app.registry.settings)
 
 
-def build_sphinx_data(settings):
+def build_sphinx_data(settings, quiet=True):
     sphinx_dst = settings['sphinx_build']
     if not os.path.exists(sphinx_dst):
         os.makedirs(sphinx_dst)
-    sphinx = WebSupport(srcdir=settings['sphinx_src'], builddir=sphinx_dst)
+    sphinx = WebSupport(srcdir=settings['sphinx_src'], builddir=sphinx_dst,
+                        status=None)
     sphinx.build()

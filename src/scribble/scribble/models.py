@@ -54,6 +54,7 @@ class Collections(object):
     def __init__(self, settings):
         args = dict([(k[6:], v) for k, v in settings.items()
                      if k.startswith('redis.')])
+        self.prefix = args.pop('prefix', 'scribble.collection')
         self.redis = redis.Redis(**args)
         self.collections = collections = {}
         for name in settings['collections'].split():
@@ -63,7 +64,8 @@ class Collections(object):
         collections = self.collections
         collection = collections[name]
         if collection is None:
-            collections[name] = collection = Collection(self.redis, name)
+            collections[name] = collection = Collection(
+                self.redis, name, self.prefix)
             collection.__parent__ = self
         return collection
 
@@ -73,10 +75,10 @@ class Collections(object):
 
 class Collection(object):
 
-    def __init__(self, redis, name):
+    def __init__(self, redis, name, prefix):
         self.redis = redis
         self.__name__ = name
-        self.key = 'scribble.collection.%s' % name
+        self.key = '%s.%s' % (prefix, name)
         self.mtime_key = '%s.mtime' % self.key
 
     def add(self, data):
