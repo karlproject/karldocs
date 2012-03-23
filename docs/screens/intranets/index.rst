@@ -1,9 +1,10 @@
 =====================
-Screens for
+Screens for Intranets
 =====================
 
 
 .. toctree::
+    :glob:
     :maxdepth: 1
 
-    admin_view
+    *

@@ -1,9 +1,10 @@
 =====================
-Screens for
+Screens for Trash
 =====================
 
 
 .. toctree::
+    :glob:
     :maxdepth: 1
 
-    admin_view
+    *

@@ -1,9 +1,10 @@
 =====================
-Screens for
+Screens for History
 =====================
 
 
 .. toctree::
+    :glob:
     :maxdepth: 1
 
-    admin_view
+    *
