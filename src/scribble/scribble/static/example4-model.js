@@ -136,17 +136,6 @@ $(function () {
         grid.render();
     });
 
-    dataView.onPagingInfoChanged.subscribe(function (e, pagingInfo) {
-        var isLastPage = pagingInfo.pageSize * (pagingInfo.pageNum + 1) - 1 >= pagingInfo.totalRows;
-        var enableAddRow = isLastPage || pagingInfo.pageSize == 0;
-        var options = grid.getOptions();
-
-        if (options.enableAddRow != enableAddRow) {
-            grid.setOptions({enableAddRow:enableAddRow});
-        }
-    });
-
-
     var h_runfilters = null;
 
     // wire up the search textbox to apply the filter to the model

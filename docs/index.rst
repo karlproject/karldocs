@@ -8,9 +8,11 @@ Welcome to KARL's documentation!
 
 
 
+
 .. toctree::
    :maxdepth: 2
 
+   screens/index
    hosting/index
    specs/index
 
