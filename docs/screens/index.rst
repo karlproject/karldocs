@@ -31,4 +31,4 @@ screen. The listing is organized by major area in KARL.
     profiles/index
     trash/index
     versioning/index
-    wiki/index
+    wikis/index

@@ -16,8 +16,6 @@ Welcome to KARL's documentation!
    hosting/index
    specs/index
 
-   glossary
-
 Indices and tables
 ==================
 
