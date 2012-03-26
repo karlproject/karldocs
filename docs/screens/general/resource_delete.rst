@@ -1,5 +1,5 @@
 ======================
- Screen
+Resource Delete Screen
 ======================
 
 Features

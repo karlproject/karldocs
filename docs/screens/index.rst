@@ -11,7 +11,7 @@ with a link to specification and description information for each
 screen. The listing is organized by major area in KARL.
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     admin/index
     attachments/index
@@ -30,5 +30,4 @@ screen. The listing is organized by major area in KARL.
     panels/index
     profiles/index
     trash/index
-    versioning/index
     wikis/index

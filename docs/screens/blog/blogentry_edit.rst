@@ -1,5 +1,5 @@
 ======================
- Screen
+Blog Entry Edit Screen
 ======================
 
 Features
