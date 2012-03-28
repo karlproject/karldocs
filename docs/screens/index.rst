@@ -19,7 +19,7 @@ screen. The listing is organized by major area in KARL.
     calendar/index
     chatter/index
     comments/index
-    community/index
+    communities/index
     files/index
     forums/index
     general/index
@@ -28,6 +28,8 @@ screen. The listing is organized by major area in KARL.
     members/index
     networknews/index
     panels/index
+    people/index
     profiles/index
+    tags/index
     trash/index
     wikis/index
