@@ -31,9 +31,9 @@ Postbox Specification
 - Remove ``#this`` from the help text on this screen (but not in the
   pushpanel version of the postbox)
 
-- Make a URL shortener service (low priority if this is challenging)
-
 - Put some kind of character limit, perhaps at 300
+
+- Detect URLs and turn into hyperlinks
 
 List Specification
 ==================
@@ -46,7 +46,8 @@ List Specification
 
 - Shows posts which are: you are following, my posts and reposts,
   posts and reposts from people I follow, posts from a topic/tag I
-  am following, posts for @community-name I am in, posts that mention me
+  am following, posts that mention any community I am in,
+  posts that mention me
 
 - Each chatter post should show:
 
@@ -61,6 +62,8 @@ List Specification
 
 - The post itself is not a hyperlink to :doc:`chatterpost_view` (change
   from current implementation)
+
+- Ensure ``@`` and ``#`` and ``&`` all render into hyperlinks
 
 - Mousing over a post in the list gives an overlay with the following
   links: Reply, Repost, View
@@ -84,22 +87,45 @@ List Specification
   making it show up in Susan's stream. The stream should have a link to
   Mary (allowing Susan to read more posts and start following Mary.)
 
+- When someone puts ``&community_name`` in a post,
+  it shows up under Posts for anybody in that community at the time of
+  the post
+
 Stats Box
 =========
 
 - Provide a box above "Show Only" with the  stats: X tweets,
   X following, X followers, with those as links
 
+
+To Do
+=====
+
+- Get Following and Followers as section menu items, linked from the
+  stats links
+
+- Document on all chatter screens which parts disappear if you are
+  looking at someone else
+
+- Explain that the URL shortener might be a challenge for Q2
+
+- Explain that autocomplete might be a post-Q2 thing
+
+- Infinite scrolling might be a post-Q2 thing
+
+- Ensure we have a view that shows all the posts in a conversation
+
 Questions
 =========
 
-- Is it ``@community_name`` or ``#community_name``?
+- Ok with the unread marks?
 
-- For such references, what are the policy implications (e.g. who sees
-  it and where?)
+- How hard is URL shortener?
 
-- How to trigger mentions, replies, and retweets
+- Infinite scrolling?
 
-- How hard is it to autocomplete in a textarea for usernames? This is,
-  I start typing ``@cgu`` and it expands the choices with a popup
-  underneath?
+- Do we retain enough data about replies or reposts that we can show a
+  screen with all the posts in a conversation? Is that just the normal
+  screen for viewing a post?
+
+
