@@ -45,9 +45,8 @@ List Specification
 - Use infinite scrolling to load more post from the past as needed
 
 - Shows posts which are: you are following, my posts and reposts,
-  posts and reposts from people I follow, posts from a topic/tag I
-  am following, posts that mention any community I am in,
-  posts that mention me
+  posts and reposts from people I follow, posts that mention any
+  community I am in, posts that mention me
 
 - Each chatter post should show:
 
