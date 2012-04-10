@@ -19,6 +19,8 @@ To Do
 
 - Users and Groups
 
+- Add User
+
 
 .. toctree::
     :glob:
