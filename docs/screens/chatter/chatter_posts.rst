@@ -11,29 +11,12 @@ Show the posts that are relevant for a user.
 General Specification
 =====================
 
-- The unread badge on the Chatter menu is the sum of the unread badges
-  on the Posts and Messages section menus
+- Shows a list of Chatter posts
 
-- Ensure the unread badges are updated appropriately (server and
-  browser)
+- Details on the :doc:`../panels/chatterpost`
 
-Postbox Specification
-=====================
+  - Help text should not mention ``#this``
 
-- Ensure that @username creates a link to the chatter_creators. For
-  example::
-
-    So @staff1 what's up buddy:
-
-  ...should make "So" and "what's up buddy" a link to the post,
-  while @staff1 is a link to the chatter_creators.
-
-- Remove ``#this`` from the help text on this screen (but not in the
-  pushpanel version of the postbox)
-
-- Put some kind of character limit, perhaps at 300
-
-- Detect URLs and turn into hyperlinks
 
 List Specification
 ==================
@@ -52,7 +35,7 @@ List Specification
 
   - A thumbnail of the user's profile, mouseover shows full name
 
-  - Their username as a hyperlink to :doc:`chatter_creator`
+  - Their username as a hyperlink to *Chatter Posts* for that user
 
   - The timeago format of the chatter post's create date
 
@@ -93,9 +76,11 @@ List Specification
 Stats Box
 =========
 
-- Provide a box above "Show Only" with the  stats: X tweets,
-  X following, X followers, with those as links
+- Provide a box above "Show Only" with the  stats: X Posts,
+  Y Following, Z Followers
 
+- Each of those are links to the relevant section menu for that
+  person's Chatter page
 
 To Do
 =====
@@ -110,18 +95,15 @@ To Do
 
 - Explain that autocomplete might be a post-Q2 thing
 
+- Explain that attachments and security/visibility might be a post-Q2
+  thing
+
 - Infinite scrolling might be a post-Q2 thing
 
 - Ensure we have a view that shows all the posts in a conversation
 
 Questions
 =========
-
-- Ok with the unread marks?
-
-- How hard is URL shortener?
-
-- Infinite scrolling?
 
 - Do we retain enough data about replies or reposts that we can show a
   screen with all the posts in a conversation? Is that just the normal

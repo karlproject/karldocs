@@ -32,6 +32,7 @@ Specifications
 
 - All the normal specifications for pushdowns.
 
-- The number of unread items on the badge increases and decreases
-  correctly. Whenever an item is presented, it is no longer considered
-  unread.
+- Whenever the Chatter Panel is displayed, clear the Unread badge and
+  tell the server.
+
+- Ensure each blurb doesn't get too

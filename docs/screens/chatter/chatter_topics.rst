@@ -8,6 +8,11 @@ those to be tags. Users can follow topics just like they follow
 people. The *Chatter Topics* screen provides a listing of Chatter Posts
 in any of the followed topics.
 
+Specification
+=============
+
+- Shows a list of topics
+
 Notes
 =====
 
@@ -24,12 +29,6 @@ Notes
 
 - Allow drilling into a topic
 
-Features
-========
-
-
-Specifications
-==============
 
 Details
 =======
