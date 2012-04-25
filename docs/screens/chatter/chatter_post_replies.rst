@@ -9,7 +9,7 @@ follow. You want a way to see what was the orginal that was replied to,
 and perhaps a way to see the entire conversation of replies from
 everybody.
 
-.. image:: https://agendaless.mybalsamiq.com/projects/karl/Chatter+Posts+Replies.png
+.. image:: https://agendaless.mybalsamiq.com/projects/karl/Chatter+Post+Replies.png
    :width: 904px
    :height: 713px
 
