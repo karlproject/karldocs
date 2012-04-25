@@ -1,15 +1,14 @@
-====================
-Chatter Posts Screen
-====================
+================================
+Chatter Post Conversation Screen
+================================
 
-In your Chatter "Posts" stream, sometimes you will see an entry that is
-a reply. Perhaps it is you replying to a Chatter Post from someone you
-follow. Or, someone you follow was replying to someone that you don't
-follow. You want a way to see what was the orginal that was replied to,
-and perhaps a way to see the entire conversation of replies from
-everybody.
+When you reveal the original post in a reply, you have a link to ``View
+converation``. This is the screen that you are taken to. You see the
+Chatter post that was revealed by clicking "Replying to Person Name",
+then all the replies to *that* post, sorted chronologically,
+one level deep.
 
-.. image:: https://agendaless.mybalsamiq.com/projects/karl/Chatter+Posts+Replies.png
+.. image:: https://agendaless.mybalsamiq.com/projects/karl/Chatter+Post+Conversation.png
    :width: 904px
    :height: 713px
 
@@ -17,18 +16,9 @@ everybody.
 Specification
 =============
 
-- When a Chatter Post is in reply to something, show a link below the
-  text that says "Replying to Person Name"
+Questions
+=========
 
-- Clicking the link shows, underneath and indented,
-  the post that was being replied to
+- Should we show multiple levels deep?
 
-- Once clicked, the link changes back to "Hide original".
-
-- Once "Replying to Person Name" is clicked, we also provide a link
-  "Show full conversation" that goes to :doc:`chatter_post_conversation`
-
-- The box for the original gets the same mouseover actions,
-  but no "Replying to Person Name" if *it* was a reply
-
-
+- "Load more" button?

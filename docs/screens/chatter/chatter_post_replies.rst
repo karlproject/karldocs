@@ -1,6 +1,6 @@
-====================
-Chatter Posts Screen
-====================
+=========================
+Chatter Post Reply Screen
+=========================
 
 In your Chatter "Posts" stream, sometimes you will see an entry that is
 a reply. Perhaps it is you replying to a Chatter Post from someone you
@@ -26,7 +26,7 @@ Specification
 - Once clicked, the link changes back to "Hide original".
 
 - Once "Replying to Person Name" is clicked, we also provide a link
-  "Show full conversation" that goes to :doc:`chatter_postconversation`
+  "Show full conversation" that goes to :doc:`chatter_post_conversation`
 
-
-
+- The box for the original gets the same mouseover actions,
+  but no "Replying to Person Name" if *it* was a reply
