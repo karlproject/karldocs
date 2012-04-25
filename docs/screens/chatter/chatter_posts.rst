@@ -25,8 +25,6 @@ List Specification
   has come in, without destroying your current list (similar to how KARL
   Feeds works)
 
-- Use infinite scrolling to load more post from the past as needed
-
 - Shows posts which are: you are following, my posts and reposts,
   posts and reposts from people I follow, posts that mention any
   community I am in, posts that mention me
@@ -82,6 +80,33 @@ Stats Box
 - Each of those are links to the relevant section menu for that
   person's Chatter page
 
+Find New Posts Box
+==================
+
+- Used to find posts that you don't ordinarily see, and thus sign up
+  to follow new people or topics
+
+- Typing in a searchterm and pressing enter does a search of all posts,
+  whether you are watching that post's author or topic, or not
+
+- The page reloads, shows a new list of posts matching the searchterm
+
+- The searchterm appears in the box, with a circle x ``(x)`` to clear
+  the search (and return to the normal listing)
+
+Future Work
+===========
+
+- URL shortener
+
+- Use infinite scrolling to load more post from the past as needed
+
+- Autocomplete on completing names
+
+- Attachments
+
+- Security/visibility
+
 To Do
 =====
 
@@ -91,22 +116,5 @@ To Do
 - Document on all chatter screens which parts disappear if you are
   looking at someone else
 
-- Explain that the URL shortener might be a challenge for Q2
-
-- Explain that autocomplete might be a post-Q2 thing
-
-- Explain that attachments and security/visibility might be a post-Q2
-  thing
-
-- Infinite scrolling might be a post-Q2 thing
-
 - Ensure we have a view that shows all the posts in a conversation
-
-Questions
-=========
-
-- Do we retain enough data about replies or reposts that we can show a
-  screen with all the posts in a conversation? Is that just the normal
-  screen for viewing a post?
-
 

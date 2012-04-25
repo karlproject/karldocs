@@ -16,4 +16,4 @@ Notes
 
 - Filters are ok
 
--
+- Add in discovery mode

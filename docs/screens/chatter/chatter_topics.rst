@@ -16,6 +16,8 @@ Specification
 Notes
 =====
 
+- Add in discovery mode
+
 - Shows topics that you are following, with each topic having::
 
     #hashtag                                Unfollow
