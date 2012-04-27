@@ -22,9 +22,6 @@ Specification
 - If the top post itself was in reply to a post, provide a link at the
   top to jump up a level
 
-Questions
-=========
+- Only show one level deep at a time
 
-- Should we show multiple levels deep?
-
-- "Load more" button?
+- Load the entire converation, no need for a "Load more" button

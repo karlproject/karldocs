@@ -7,7 +7,15 @@ policy.) In particular, all staff can see any post by other staff.
 
 Messages provide private, one-on-one, non-real-time conversations.
 
+No conversation selected:
+
 .. image:: https://agendaless.mybalsamiq.com/projects/karl/Chatter+Messages.png
+   :width: 904px
+   :height: 713px
+
+In a conversation:
+
+.. image:: https://agendaless.mybalsamiq.com/projects/karl/Chatter+Message+Conversation.png
    :width: 904px
    :height: 713px
 
@@ -26,17 +34,28 @@ Specifications
 
 - List of conversations on the left, conversation on the right
 
+- Each person represents one conversation (not multiple per person)
+
+- Allow messaging any user that the general security model allows you
+  to see (e.g. affiliates can message people in their communities)
+
 Non-Specifications
 ==================
 
 - Like Twitter, *not* real-time messaging or presence detection
 
-Notes
-=====
+- Don't make a requirement that you can only message people who are
+  following you (KARL is a safer place than a 100m user public system)
 
-- Only message to/from people you are following?
+- Group messaging is not needed
 
-- Do we need to (later) provide a way to walk up to a profile or a
-  Chatter person-screen and start a conversation?
+Future
+======
+
+- Fix the Chatter profile to allow walking up to someone and messaging
+  them
+
+Questions
+=========
 
 - How do we get the sizing right?
