@@ -6,6 +6,10 @@ The pushdown allows quick access to basic Chatter functions from any
 screen. It is activated by clicking the "Chatter" menu item in the
 global navigation menu.
 
+.. image:: https://agendaless.mybalsamiq.com/projects/karl/Chatter+Pushdown.png
+   :width: 904px
+   :height: 713px
+
 Features
 ========
 
@@ -21,11 +25,9 @@ Features
 
 - Read a short list of posts from your Chatter Posts screen
 
-- Go to your Chatter Posts screen
+- Read a short list of your (private) Messages
 
-- Read a short list of your direct messages
-
-- Go to Chatter
+- In-place reply/repost of posts
 
 Specifications
 ==============
@@ -35,4 +37,7 @@ Specifications
 - Whenever the Chatter Panel is displayed, clear the Unread badge and
   tell the server.
 
-- Ensure each blurb doesn't get too
+- Use the same features/layout for displaying a post/message as is used
+  on the :doc:`chatter_posts` and :doc:`chatter_messages` screens
+
+- Links to jump to Chatter Posts and Chatter Messages

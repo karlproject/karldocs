@@ -31,7 +31,14 @@ Specifications
 
 - Put some kind of character limit, perhaps at 300
 
-- Detect URLs and turn into hyperlinks
+- Detect URLs and turn into hyperlinks. For example, this::
 
-- Unless otherwise specified, clicking ``Speak`` submits the page as a
-  full-page reload (though this may be more Ajax-y in the future)
+    This is pretty neat http://karl.soros.org/community/longurl
+
+  ...becomes:
+
+    this is pretty neat <a href="url above">link</a>
+
+- If possible, clicking ``Speak`` to submit a post does so in the
+  background with a reload of the post list, to avoid a full page
+  reload
