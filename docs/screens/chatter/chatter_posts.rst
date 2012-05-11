@@ -21,10 +21,6 @@ General Specification
 List Specification
 ==================
 
-- This list should update every 30 seconds and insert anything new that
-  has come in, without destroying your current list (similar to how KARL
-  Feeds works)
-
 - Shows posts which are: you are following, my posts and reposts,
   posts and reposts from people I follow, posts that mention any
   community I am in, posts that mention me
@@ -70,6 +66,8 @@ List Specification
 - When someone puts ``&community_name`` in a post,
   it shows up under Posts for anybody in that community at the time of
   the post
+
+- Button for loading more posts
 
 Stats Box
 =========

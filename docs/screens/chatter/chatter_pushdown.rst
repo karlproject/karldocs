@@ -27,17 +27,25 @@ Features
 
 - Read a short list of your (private) Messages
 
-- In-place reply/repost of posts
+Non-Features
+============
+
+The pushdown is not meant to be the full Chatter interface,
+but rather a summary. In particular, you shouldn't have operations that
+would navigate away from the current page. Thus the following are not
+part of the pushdown:
+
+- We will show when something is in reply or reposted,
+  but not provide links
+
+- No "view" link on an individual post
+
+- No repost/reply
 
 Specifications
 ==============
 
-- All the normal specifications for pushdowns.
-
 - Whenever the Chatter Panel is displayed, clear the Unread badge and
   tell the server.
-
-- Use the same features/layout for displaying a post/message as is used
-  on the :doc:`chatter_posts` and :doc:`chatter_messages` screens
 
 - Links to jump to Chatter Posts and Chatter Messages
