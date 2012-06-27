@@ -10,7 +10,33 @@ Mockup
 
 .. raw:: html
 
-  <img height="370" width="753"
+  <img height="833" width="660"
    src="https://agendaless.mybalsamiq.com/projects/karl/Searchbox.png"
    />
 
+Goals
+=====
+
+- Make the panel look more like UX2
+
+- Try harder to get all the results in the viewport without scrolling
+
+- Speedup the dominant case (looking for a person)
+
+- Give some options for improving performance via narrowing by default
+
+Details
+=======
+
+- Try to get the search box into the global header by making it
+  narrower and smaller font size
+
+- Consider making the panel that appears on keystroke into a pushdown,
+  giving it all the width. We'll have to do extra work to make it
+  obvious how to dismiss it (pressing escape, an (x) symbol in the
+  searchbox that dismisses, an explicit "close" link)
+
+- Make a place in the panel for knobs, including the content picker and
+  the context picker
+
+- Get rid of 3 characters if we switch back ends to expand prefixes
