@@ -1,4 +1,16 @@
-======================
-KIP 1: Popper Overview
-======================
+============================================
+KIP 1: Search Results Preview With Searchbox
+============================================
+
+The searchbox (formerly LiveSearch) shows a useful subset of the full
+searchresults in a non-disruptive, in-page panel *as you type*.
+
+Mockup
+======
+
+.. raw:: html
+
+  <img height="370" width="753"
+   src="https://agendaless.mybalsamiq.com/projects/karl/Searchbox.png"
+   />
 
