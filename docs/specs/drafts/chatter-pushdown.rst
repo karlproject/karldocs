@@ -2,14 +2,13 @@
 KIP 5: Chatter Phase 1, Pushdown
 ================================
 
-As mentioned in :doc:`kip-0004`, we are breaking the Chatter work in
-phases, for analysis/development/deployment simplicity.
+We are breaking the Chatter work in phases, for
+analysis/development/deployment simplicity.
 
 This phase is focused on the Chatter functionality available in the
-Chatter :doc:`pushdown <kip-0002>` panel. This is not enough
-functionality to deploy a basic Chatter, but is a useful starting
-point. Since we don't have the full UX, we might have to dummy up some
-data (e.g. friends, messages.)
+Chatter pushdown panel. This is not enough functionality to deploy a
+basic Chatter, but is a useful starting point. Since we don't have the
+full UX, we might have to dummy up some data (e.g. friends, messages.)
 
 .. note::
 
@@ -30,8 +29,8 @@ Below are users stories related to that panel.
 Jane sees that she has new quips
 --------------------------------
 
-Popper (the UX in Bottlecap) checks with KARL every N seconds to see if
-there is anything new. This is described in :doc:`kip-0006`. Jane sees
+UX2 (the UX in Bottlecap) checks with KARL every N seconds to see if
+there is anything new. Jane sees
 her Chatter's notification box change to say there is one new quip. She
 clicks Chatter to see what's new, thus activating the pushdown panel.
 

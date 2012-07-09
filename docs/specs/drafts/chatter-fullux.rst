@@ -2,11 +2,9 @@
 KIP 6: Chatter Phase 2, Chatter Full UX Minimum
 ===============================================
 
-:doc:`kip-0005` covered the features needed for Chatter's pushpanel.
-That is the summary view of Chatter. In this KIP,
-we still stay with the minimum needed to launch. But we cover the full
-UX for Chatter. That is, what you get when you navigate to the URL for
-Chatter.
+In this KIP, we still stay with the minimum needed to launch. But we
+cover the full UX for Chatter. That is, what you get when you navigate
+to the URL for Chatter.
 
 .. note::
 

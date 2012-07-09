@@ -11,21 +11,15 @@ much in discussion. When a proposal gets some blessing,
 we invest more time in a proper "specification". These are called KIPs
 (KARL Improvement Proposal), and each KIP is uniquely numbered.
 
+Before a proposal gets blessed, thus gaining a permanent identifier,
+we need a way to write down a "draft specification". Below we have a
+section that lists the drafts.
+
 The specification process itself documented in KIP-0000.
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
-   kip-0000
-   kip-0001
-   kip-0002
-   kip-0003
-   kip-0004
-   kip-0005
-   kip-0006
-   kip-0007
-   kip-0008
-   kip-0009
-
-
-
+    drafts/index.rst
+    kip-0000
+    kip-0001

@@ -1,106 +1,160 @@
-============================================
-KIP 1: Search Results Preview With Searchbox
-============================================
+================================
+KIP 2: In-Page UX With Pushdowns
+================================
 
-The searchbox (formerly LiveSearch) shows a useful subset of the full
-searchresults in a non-disruptive, in-page panel *as you type*.
+The UX2 layout provides a fresh, new UX for KARL. UX productivity is
+one of UX2's goals. Pushdowns help this by providing quick access to
+task-specific information and actions, without disrupting the current
+page.
+
+Chatter and Radar are two elements in KARL which provide a pushdown
+panel.
+
+.. note::
+
+   UX2 also has dropdowns menus, which have a different purpose and
+   UX.
+
+Goals
+=====
+
+- *Non-disruptive*. Don't navigate away from the current page. Instead,
+  insert the pushdown into the curent page, making it visually clear
+  that the existing page content is still "down there".
+
+- *Limited*. The pushpanel doesn't replace the task or facility it
+  references. Instead, it provides a summary of the most common content
+  or tasks.
+
+- *Task specific*. Attach a pushpanel to a specific set of
+  functionality and focus on certain tasks that need to be made
+  productive.
+
+- *Fast*. Related to non-disruptive, the UX needs to go the extra mile
+  to be responsive.
+
+- *Similar, but different*. The look and feel of the pushpanel should
+  clearly connote UX2, and pushpanels should have a common set of
+  assumption for each pushpanel. But the pushpanel should feel like a
+  different UX embedded into the current page, with a different set of
+  assumptions than the chrome or the content. In a way,
+  it's a precursor for a webapp-oriented UX inside the web-oriented
+  UX2 UX.
+
+- *Attractive*. Like UX2, the pushdown UX needs to feel modern,
+  well-thought, internally consistent, graceful degradation on other form
+  factors, etc.
+
+Details
+=======
+
+- Project the menuitem (e.g. "Weather") slightly into the box,
+  to visually connote the connection. More specifically,
+  don't use triangle to mark this menu item as selected.
+
+- Take the full width
+
+- Consistent use of a button or link that takes you to the full screen
+  for that task (e.g. "Go to Chatter")
+
+- Open in-place, making it non-disruptive to the page you are on
+
+- Open/close by same click target
+
+- New incoming data doesn't disturb the currently-drawn content. For
+  example, pushpanels shouldn't redraw the list of Chatter items if you
+  have the Chatter pushpanel open. It becomes irritating to have
+  something you're looking at, move or even disappear.
+
+- The LiveSearch searchbox is overlayed, meaning, no longer visible,
+  rather than scrolling it down with the section header.
+
+- Try to avoid scrolling lists of content in a pushpanel. Show what can
+  fit, indicate that there is overflow, and make the user click away to
+  see the full listing.
+
+Why Not Modal Dialogs?
+======================
+
+Some websites have a dialog window that pops up on top of the content,
+allowing extra operations without disrupting the current work. Some
+have "modal" windows which mask the background,
+requiring you to dismiss the temporary work before interacting again
+with the primary work.
+
+We felt this approach had some flaws. First, dialogs,
+modal or otherwise, aren't universal enough to be immediately obvious.
+Second, people get confused by those windows, not knowing how to get
+out of them. Because the dialog is modal, they can't get back to what
+they were doing or dismiss the window. Finally, dialogs generally don't
+have much screen real estate available.
+
+With this pushdown approach, you still have all of what you need,
+further down. You can just scroll down to what you were doing if you
+need to refer to the primary content.
+
+Multi-Level Pushpanels
+======================
+
+Most pushpanels should be one-level deep. That is,
+what you see on the screen is all you're going to see,
+everything else is a navigation away from the pushpanel.
+
+The Radar, though, is multi-level:
+
+- Tabs, represented by pill boxes, divide the Radar into high-level
+  areas.
+
+- Clicking a new tab replaces the contents of the panel (first level
+  deep.)
+
+- Some items in the panel, when clicked, don't navigate away from the
+  page. Instead, they swipe in something which displays inline. For
+  example, filling out a form for the lunch menu (second-level.)
+
+- Re-opening shows you where you were the last time you opened (first
+  or second level.)
+
+Form Factor Considerations
+===========================
+
+Pushpanels in general have some considerations based on the
+height/width of the browser, particularly on changes (resize browser,
+change orientation of table.)
+
+- Avoid setting the pushpanel height with JS on page load. If the
+  browser height is changed after that, you're in trouble.
+
+Implementation
+==============
+
+- Try to avoid using JS to calculate height. That can cause problems:
+  browser window re-size, tablet/phone orientation change
+  (portrait to landscape), poor/glitchy performance on mobile devices,
+  etc.
+
+- Done as a Bottlecap panel, to allow overriding, etc.
+
+- The contents of the pushdown are completely up to the panel. It can
+  do client-side rendering or insert HTML from the server,
+  use microtemplates or draw directly, etc.
 
 Mockup
 ======
 
 .. raw:: html
 
-  <img height="916" width="1004"
-   src="https://agendaless.mybalsamiq.com/projects/karl/Searchbox.png"
+  <img height="370" width="753"
+   src="https://agendaless.mybalsamiq.com/projects/popper/Pushdown.png"
    />
 
-.. note::
+Of note:
 
-  To get the 2 column layout, we are giving up on menu navigation by
-  cursor.
+- "Weather" pushes a little into the pushpanel content,
+  to imply a connection
 
-Goals
-=====
+- You click "Weather" again to dismiss it
 
-- Make the panel look more like UX2
+- The section header ("Some Community") is still visible below
 
-- Try harder to get all the results in the viewport without scrolling
-
-- Speedup the dominant case (looking for a person)
-
-- Give some options for improving performance via narrowing by default
-
-Details
-=======
-
-- Try to get the search box into the global header by making it
-  narrower and smaller font size
-
-- Consider making the panel that appears on keystroke into a pushdown,
-  giving it all the width. We'll have to do extra work to make it
-  obvious how to dismiss it (pressing escape, an (x) symbol in the
-  searchbox that dismisses, an explicit "close" link)
-
-- If a pushpanel, give the same pushdown treatment, where you highlight
-  the square behind it
-
-- Issue the search for People in parallel with the search for the rest,
-  allowing us to quickly show the faster-performing search (people) that
-  is the dominant use case (finding a phone number)
-
-- Make a place in the panel for knobs, including the context picker
-
-- The "Staff only content" and "Modified in past year" knobs default to
-  being selected. The selections are "sticky".
-
-- Get rid of 3 character minimum if we switch back ends to expand
-  prefixes
-
-- Use the oval format that Chatter uses for each row if possible,
-  but the extra padding might take up too much vertical space
-
-- "show more" expands that kind of result to take up all the space in
-  the column, eliminating the other groups, and toggles to say "show
-  less". This does not require a server trip, as we already have the
-  data. Don't show a "show more" link if there aren't more to show.
-  This replaces the drop down used previously to narrow by content.
-  This is *not* sticky, as sticky was primarily for the "People" use
-  case.
-
-- Dismiss when the (x) is clicked, or there are no letters, or any other
-  way that pushpanels get dismissed
-
-- Small font sizes are ok if needed
-
-- We will need to show fewer items per group in order to fit without
-  scrolling. The "show more" help make that less of an issue.
-
-- Look at the OSF LiveSearch results for information in presented in
-  each group's formatter (TODO Paul get all those details baked into
-  the mockup)
-
-- Ensure that everything fits on two lines
-
-- File icon types for the kinds of files (PDF, etc.)
-
-- Context picker is not sticky
-
-- Leave enough content on the bottom (targetting 1024x768) to ensure
-  this feels like a pushpanel
-
-- Address responsive design adaptation to smaller form factors
-
-- To get into the header, change Person Name to My Profile
-
-- Caching result data for searches in this session and not repeating
-  search if you backspace and type the same search again
-
-- Throttle input at a certain buffer period (to prevent firing off a
-  bunch of searches when people type very fast.) Current LiveSeach has
-  this policy.
-
-- Have a place to show error messages.
-
-- Try to prevent multiple requests in the queue at once.
-
-
+- You get the full width

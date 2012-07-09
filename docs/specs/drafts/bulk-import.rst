@@ -1,6 +1,6 @@
-=====================================
-KIP 9: Bulk Import of Content (Oxfam)
-=====================================
+==============================
+Bulk Import of Content (Oxfam)
+==============================
 
 Oxfam has a lot of content to migrate into KARL. They need a web API
 that their developers can use to load content extracted from other

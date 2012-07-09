@@ -1,6 +1,6 @@
-=============================================
-KIP 6: Seeing New Activity with Notifications
-=============================================
+======================================
+Seeing New Activity with Notifications
+======================================
 
 Content gets created in KARL that might need attention by a user. If
 they don't reload a page, they won't know there's something for them.
