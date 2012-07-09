@@ -1,5 +1,5 @@
 ==========================================
-KIP 3: External Authentication with OpenID
+External Authentication with OpenID
 ==========================================
 
 .. note::
@@ -21,4 +21,4 @@ Notes
 
 - Changes to the CSV upload
 
--
+- Skinning the login screens

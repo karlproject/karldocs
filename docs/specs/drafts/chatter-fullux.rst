@@ -1,5 +1,5 @@
 ===============================================
-KIP 6: Chatter Phase 2, Chatter Full UX Minimum
+Chatter Phase 2, Chatter Full UX Minimum
 ===============================================
 
 In this KIP, we still stay with the minimum needed to launch. But we

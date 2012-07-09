@@ -1,5 +1,5 @@
 ================================
-KIP 5: Chatter Phase 1, Pushdown
+Chatter Phase 1, Pushdown
 ================================
 
 We are breaking the Chatter work in phases, for

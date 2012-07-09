@@ -1,5 +1,5 @@
 =======================
-KIP 4: Chatter Overview
+Chatter Overview
 =======================
 
 Chatter is a microblogging tool in KARL for lightweight communication.

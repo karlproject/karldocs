@@ -1,5 +1,5 @@
 ============================================
-KIP 1: Search Results Preview With Searchbox
+Search Results Preview With Searchbox
 ============================================
 
 The searchbox (formerly LiveSearch) shows a useful subset of the full
