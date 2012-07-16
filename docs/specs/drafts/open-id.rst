@@ -8,6 +8,10 @@ External Authentication with OpenID
   handle different flavors of staff. Instead, it is just the minimum
   get staff authentication outside of KARL.
 
+Call with Matt
+==============
+
+-
 
 Notes
 =====
@@ -15,9 +19,12 @@ Notes
 - Devteam development/testing against anything requiring ActiveDirectory
   is a logistical challenge
 
-- Try to use WSO2 for the Kerberos part
+- Try to use WSO2 for the Kerberos part...or not
 
 - Staff-only, removes their password from the KARL database
+
+  - This will then make staging testing of staff users quite hard in the
+    future, as the dev team won't have accounts that exist in the AD
 
 - Changes to the CSV upload
 
