@@ -50,6 +50,9 @@ Global Toolbar
 
     - http://goo.gl/I4myf
 
+  - Also look to new www.sorosny.org for inspiration on fonts, colors,
+    etc.
+
   - Smaller fonts, perhaps sans-serif
 
   - Lighter background color
