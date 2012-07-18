@@ -14,6 +14,7 @@ In Progress
     transparent-login-with-kerberos
     open-id
     searchbox
+    ux2-reskin
 
 Archived
 ========
