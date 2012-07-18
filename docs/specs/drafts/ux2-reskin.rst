@@ -27,6 +27,14 @@ UX2 Goals
 UX2 Re-Skin Goals
 =================
 
+Try for a few different themes:
+
+- Largely the existing, with some small changes
+
+- Deeper changes, inspired by www.sorosny.org
+
+- Deeper changes, inspired by Office 13
+
 
 Skin 1
 ======
