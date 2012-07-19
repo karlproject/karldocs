@@ -103,6 +103,12 @@ mind and go off to another Karl page you'll be logged in automatically
 so it doesn't prevent access it just gives you a chance to login as a
 different user.
 
+.. note::
+
+  In this model, there really isn't a logout. On the login screen,
+  you could click on a link or go to a URL and get transparently logged
+  back in.
+
 Forgot/Change Password
 ----------------------
 
@@ -141,6 +147,9 @@ Not In Scope
 
 - Any mechanism beyond existing admin functions for disabling a
   transparent login
+
+- Any way for the user to permanently log out of KARL, except for
+  logging off the domain
 
 Workplan
 ========
