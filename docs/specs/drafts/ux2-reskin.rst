@@ -44,6 +44,8 @@ changing some quick cosmetics. The desired effects:
 Actions
 =======
 
+Starting with the highest priority:
+
 #. ``font-family`` based on soros.org (i.e. Helvetica, Arial,
    sans-serif)
 
@@ -54,14 +56,7 @@ Actions
 
 #. Section tools (blog, etc.) get a non-shadowed font
 
-#. Inactive section tools also don't get "de-emphasized". If needed,
-   make inactive section tabs "pop more" (i.e. don't use a color so
-   close to the background color). We hope that removing the shadow on
-   inactive labels is enough.
-
 #. Remove beige background color in the content area.
-
-#. Make action menu buttons be more compact
 
 #. Portlet styling directly stolen from soros.org to give a less-boxy,
    app-y feeling:
@@ -78,6 +73,13 @@ Actions
 
     - Get rid of "more" as a button, instead have a link in the bottom
       of the box, right aligned
+
+#. Inactive section tools also don't get "de-emphasized". If needed,
+   make inactive section tabs "pop more" (i.e. don't use a color so
+   close to the background color). We hope that removing the shadow on
+   inactive labels is enough.
+
+#. Make action menu buttons be more compact
 
 Questions
 =========
