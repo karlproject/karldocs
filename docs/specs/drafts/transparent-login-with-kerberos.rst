@@ -68,7 +68,7 @@ view that asks for a login, send to an intermediate view which
 challenges for the header:
 
 1) Joe is a user who is logged into AD. He hasn't used KARL in 15 days
-  (meaning, his KARL auth ticket cookie has expired.)
+   (meaning, his KARL auth ticket cookie has expired.)
 
 2) Joe goes to karl.oxfam.org.uk/intranets/oxfam-house. He isn't logged
    in, so he gets redirected to
