@@ -1,9 +1,15 @@
-==========
-UX2 Reskin
-==========
+================
+UX2 Quick Reskin
+================
+
+Cosmetic restling changes on UX2 to better connote UX1,
+based on feedback from OSF internal communications.
 
 UX2 Goals
 =========
+
+As a reminder, below are some of the original degign goals of the UX2
+project:
 
 - "Fresh look for a fresh look"
 
@@ -24,122 +30,61 @@ UX2 Goals
 
 - Understand app vs. website distinction
 
-UX2 Re-Skin Goals
-=================
+UX2 Quick Re-Skin Goals
+=======================
 
-Try for a few different themes:
+In this initial effort, we're avoiding structural changes and simply
+changing some quick cosmetics. The desired effects:
 
-- Largely the existing, with some small changes
+- Return to some of the aesthetic of UX1
 
-- Deeper changes, inspired by www.sorosny.org
+- Take some commonality from the new soros.org redesign (fonts,
+  portlet styling)
 
-- Deeper changes, inspired by Office 13
+Actions
+=======
 
+#. ``font-family`` based on soros.org (i.e. Helvetica, Arial,
+   sans-serif)
 
-Skin 1
-======
+#. ``font-size`` halfway between now and UX1/soros.org
 
-- Inspired somewhat by parts of Office 2013
+#. Section menu gets a lighter, grayish background (instead of the
+   aqua/green/blue current background.)
 
-- Smaller font
+#. Section tools (blog, etc.) get a non-shadowed font
 
-- Lighter colors
+#. Inactive section tools also don't get "de-emphasized". If needed,
+   make inactive section tabs "pop more" (i.e. don't use a color so
+   close to the background color). We hope that removing the shadow on
+   inactive labels is enough.
 
-- Light background image with content area imposed on it
+#. Remove beige background color in the content area.
 
-Global Toolbar
---------------
+#. Make action menu buttons be more compact
 
-  - Resembling Office 2013
+#. Portlet styling directly stolen from soros.org to give a less-boxy,
+   app-y feeling:
 
-    - Single global strip at top, condensed, two colors
+    - No outer box or background color
 
-    - "Context" strip underneath, condensed
+    - Top heading, bold, all caps
 
-    - http://goo.gl/I4myf
+    - Separate rows with lines to allow wrapping
 
-  - Also look to new www.sorosny.org for inspiration on fonts, colors,
-    etc.
+    - All combine to connote a box
 
-  - Smaller fonts, perhaps sans-serif
+    - Applies to left/middle column portlets as well
 
-  - Lighter background color
-
-  - Fix the triangle issue on pushdown, get rid of triangle?
-
-  - Distinction between KARL nav and Personal nav
-
-  - Move the searchbox into header
-
-  - Get rid of gear with "tags"
-
-  - Move unnecessary things (and in future, overflow) to Radar
-
-  - Bring back Radar
-
-  - Shorten personal name
-
-  - Make avatar into drop down menu button
-
-  - Move "logout" into the dropdown
-
-  - Consider making that pushdown with recent content, etc.
-
-  - Provide a library of avatars
-
-- Section
-
-  - Get rid of shadow font
-
-  - Change background color to something with better contrast ratio
-
-  - Consider tightening to one line
-
-- Portlets
-
-  - Better handling of wrapped lines vs. next row
-
-  - Much more subdued
-
-  - Have a "more" link that is more subdued, uniform
-
-  - Less boxy
-
-  - Smaller font size
-
-- Chatter
-
-  - Make it behave just like other links
-
-  - Take the pushdown stuff and put either in Radar or in Personal
-
-- Content
-
-  - Move tagbox back under resource title, in greatly condensed form
-
-  - Get rid of sidebars where they are not needed
-
-  - Work harder to get the resource title up
-
-  - Especially, with searchbox now moved up, resolve the action menu
-    challenge
-
-  - Get rid of button motif for chrome links
-
-- Home page
-
-  - Inspired by sorosny.org  layout
-
-  - Get a tablet-optimized version
-
+    - Get rid of "more" as a button, instead have a link in the bottom
+      of the box, right aligned
 
 Questions
 =========
 
-- Do we need to support multiple "themes", just to get out of the trap
-  of "what's the ultimate decisions?"
-
-- What value is there placed on the responsive design?
+- (Nat) If it is a goal to infer UX1, do we need to work in the UX1
+  colors? E.g. the light blue gradient. See screencast at
+  http://www.screencast.com/t/neSX5u9A
 
 Notes
 =====

@@ -15,6 +15,7 @@ In Progress
     open-id
     searchbox
     ux2-reskin
+    ux2-reskin2
 
 Archived
 ========
