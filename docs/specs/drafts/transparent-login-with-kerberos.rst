@@ -68,13 +68,13 @@ view that asks for a login, send to an intermediate view which
 challenges for the header:
 
 1) Joe is a user who is logged into AD. He hasn't used KARL in 15 days
-  (meaning, his cookie has expired.)
+  (meaning, his KARL auth ticket cookie has expired.)
 
 2) Joe goes to karl.oxfam.org.uk/intranets/oxfam-house. He isn't logged
    in, so he gets redirected to
-   ``karl.oxfam.org.uk/duncans-cool-redirector``
+   ``karl.oxfam.org.uk/sniffer-redirector``
 
-3) The duncans-cool-redirector view does this:
+3) The sniffer-redirector view does this:
 
    - Challenge for the Kerberos ticket.
 
@@ -83,14 +83,15 @@ challenges for the header:
      tickets and redirect to the URL that Joe was trying for.
 
    - If no Kerberos ticket is provided, they aren't on the AD,
-    so redirect to the normal login screen.
+     so redirect to the normal login screen.
 
    - If they present an invalid Kerberos ticket....send them to
      the normal login screen.
 
 With this, nothing in KARL's feature set or UX changes except the
 login screen. Once every 2 or so weeks, Oxfam users get sent to a
-series of redirects, invisibly arriving at the page they were requesting.
+series of redirects, invisibly arriving at the page they were
+requesting.
 
 Logout
 ------
@@ -108,6 +109,18 @@ Forgot/Change Password
 Forgot password and change password would do what they currently do,
 i.e. change your Karl password not the one for AD.
 
+Specs
+=====
+
+- In first deliverable, only support one ActiveDirectory domain
+
+- If the browser presents a header with an AD username that doesn't
+  match a username in KARL, send them to the login screen with a
+  ``status_message`` that says "ActiveDirectory username 'blahblah' does
+  not match a KARL user with that username"
+
+- Must support IE7/Chrome on XP
+
 Implementation
 ==============
 
@@ -115,22 +128,56 @@ Implementation
   This is all implemented using a Python library which decodes the
   validity of Kerberos ticket against the AD domain certificate.
 
-Questions
-=========
+- We need a way to deploy into production, but only for a small list of
+  users at first. Provide a knob in the configuration ``.ini`` file
+  that acts like a whitelist of usernames that are checked for Kerberos
+  tickets
 
-- Does Oxfam only have one AD domain/certificate? If not, can Matt's
-  library support multiple domains?
+Not In Scope
+============
 
-- Can Oxfam ensure that all usernames in AD match up to KARL usernames?
+- Making Kerberos-provided username match up to different usernames in
+  KARL
 
+- Any mechanism beyond existing admin functions for disabling a
+  transparent login
 
-Notes
-=====
+Workplan
+========
 
-- Oxfam is IE7 and Chrome on XP
+M1
+--
 
-- Devteam development/testing against anything requiring ActiveDirectory
-  is a logistical challenge
+- (1-Chris) Review and give feedback on technical spec
 
-- Changes to the CSV upload
+- (1-Paul) Give Oxfam the SOW details
 
+M2
+--
+
+- (2-Matt) Get test VMs with AD users that devs can connect to
+
+- (2-Chris/Matt) Work with gocept to get Matt a login on karldev with a
+  deployed Pyramid app from Matt
+
+- (5-Chris) Initial work on redirector. Perhaps some test mode where you
+  can work with a header not provided by Kerberos. Deploy on a branch
+  on karldev.
+
+M3
+--
+
+- (1-Duncan) Give Chris the certificate for Oxfam's AD
+
+- (2-Chris) Re-asses, correct, polish
+
+- (1-Chris) Deploy to MultiKARL staging with Oxfam's AD certificate
+
+- (2-Oxfam) Test
+
+M4
+--
+
+- (0-Chris) Remove Matt's Pyramid sample app from karldev
+
+- (1-Chris) Deploy to production
