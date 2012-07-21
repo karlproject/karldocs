@@ -1,6 +1,6 @@
-================
-UX2 Quick Reskin
-================
+==========================
+KIP 2: UX2 Quick Reskin
+==========================
 
 Cosmetic restling changes on UX2 to better connote UX1,
 based on feedback from OSF internal communications.
@@ -81,12 +81,36 @@ Starting with the highest priority:
 
 #. Make action menu buttons be more compact
 
+#. Move tagbox under the resource title. Along the way,
+   make the tagbox more compact:
+
+   - Smaller font
+
+   - Shorter height on both the tags and the "New Tag" button. The
+     former is 22px high, the latter is 25 px high. Perhaps both can be
+     20 or 22 px.
+
+   - Lighten the tag backgrounds (one for things I tagged,
+     one for things others tagged) to not stand out too much.
+
+   - Make the input box for adding a new tag a *lot* thinner. Perhaps 12
+     characters before it starts scrolling. It currently goes to 20 and
+     then scrolls, even though 40% of the right margin is empty.
+
+#. Instead of "MORE New York News", just say "more...". We don't need to
+   repeat the "New York News", it's in the header 100 px up. This means
+   we have to find where in the code this is generated.
+
+#. Perhaps a *little* more padding/space between columns. Perhaps 50%
+   more than the current value.
+
+#. Make the right columns on communities less wide,
+   perhaps 30-50% less than the current width.
+
 Questions
 =========
 
-- (Nat) If it is a goal to infer UX1, do we need to work in the UX1
-  colors? E.g. the light blue gradient. See screencast at
-  http://www.screencast.com/t/neSX5u9A
+- If we move the tag box over, and we have some
 
 Notes
 =====

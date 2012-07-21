@@ -23,3 +23,4 @@ The specification process itself documented in KIP-0000.
     drafts/index.rst
     kip-0000
     kip-0001
+    kip-0002

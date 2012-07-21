@@ -1,5 +1,5 @@
 ================================
-KIP 2: In-Page UX With Pushdowns
+KIP 1: In-Page UX With Pushdowns
 ================================
 
 The UX2 layout provides a fresh, new UX for KARL. UX productivity is
