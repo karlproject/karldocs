@@ -24,3 +24,4 @@ The specification process itself documented in KIP-0000.
     kip-0000
     kip-0001
     kip-0002
+    kip-0003

@@ -104,8 +104,11 @@ Starting with the highest priority:
 #. Perhaps a *little* more padding/space between columns. Perhaps 50%
    more than the current value.
 
-#. Make the right columns on communities less wide,
-   perhaps 30-50% less than the current width.
+#. Make the right columns on communities less wide, perhaps 30-50% less
+   than the current width.
+
+#. Get rid of the gear in the global header and put "Tags" in between
+   Feeds and Chatter.
 
 Questions
 =========

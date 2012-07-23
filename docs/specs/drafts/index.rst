@@ -11,7 +11,6 @@ In Progress
 .. toctree::
     :maxdepth: 1
 
-    transparent-login-with-kerberos
     open-id
     searchbox
     ux2-reskin2
