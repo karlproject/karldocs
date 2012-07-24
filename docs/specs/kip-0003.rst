@@ -1,5 +1,5 @@
 ==========================================
-Transparent Login With Kerberos
+KIP 3: Transparent Login With Kerberos
 ==========================================
 
 ActiveDirectory users logged into a domain have browsers that can
