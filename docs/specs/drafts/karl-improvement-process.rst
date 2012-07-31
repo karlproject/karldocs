@@ -7,6 +7,13 @@ specification, into development, and on through release and
 maintenance. This "KARL Improvement Proposal" describes the improvement
 process itself.
 
+.. note::
+
+    This doesn't yet get into the details of mapping into JIRA. We
+    should first get the process straight between the partners. Based
+    on that feedback, we should then get with the JIRA experts (6FU) to
+    decide the right way to map things.
+
 Background
 ==========
 
@@ -33,8 +40,8 @@ Goals
 - Unify the various ways of doing things, by the various actors,
   into a single approach
 
-- Provide visibility to all interested parties regarding what is
-  contemplated, what is commissioned, what it will do,
+- Provide visibility to all interested parties (including outsiders)
+  regarding what is contemplated, what is commissioned, what it will do,
   when it will arrive, and issues regarding the work
 
 - Where possible, automate this single process with a tool
@@ -61,18 +68,26 @@ In summary:
 - A *Specification* is a feature that has been selected for more
   investment via analysis
 
-- An *Initiative* is a group of features and specifications which,
-  staged together, address a larger business problem.
-
 - A *Task* is an item of development work (development, system
-  administration), usually in support of a Specification or Initiative.
+  administration), usually in support of a Specification.
 
 - A *Bug* is an item of maintenance work. Similar to,
   but not exactly the same as, a Task.
 
 - An *Iteration* is a unit of scheduling.
 
+- A *Branch* is an isolated unit of code development.
+
+- *Dev Testing* is manual and automated testing of a branch,
+  without other branches, without data.
+
+- *Integration Testing* combines multiple units of work,
+  with production data, for final pre-release testing.
+
 - A *Release* is a unit of distribution.
+
+- *Production Testing* is testing in production after a release,
+  to completely close the work.
 
 - The *Roadmap* is a planning instrument showing what just happened,
   is happening, and will happen
@@ -114,8 +129,8 @@ After a comment period, OSF says "Go!" The draft spec is a real
 Specification and gets a permanent identifier (KIP-0047). The
 Specification is assigned a Development Quarter of Q3 (which helps in
 high-level budgeting) and a Deployment Quarter of Q3 (which helps set
-user expectations.) The Feature on the Feature Backlog is archived,
-making it disappear from view.
+user expectations.) The Feature on the Feature Backlog is associated
+with one or more of these Specifications and its status is updated.
 
 Paul, as the PM for this Specification, starts assigning Tasks. This
 involves looking at the resource pool and timeline to see who is
@@ -127,10 +142,175 @@ for all work on the Specification.
 When Chris finishes a Task, he marks the Task as implemented. This
 makes it appear on Jim's radar as something to test. Jim does so.
 
-As Jim and Nat do testing on the Specification, they might find Bugs,
-which they file, associated with the Specification. Paul sees the new
-Bug and assigns it to Carlos as part of an Iteration. Carlos fixes the
-Bug, which makes it appear on Jim's radar for testing. Jim tests and
-closes the bug.
+*TBD: What gets scheduled/targeted to what..does a Task get targeted to
+an Iteration and a Specification get targeted to a Release? What is the
+unit of divisiblity on Branch?*
 
-At some point the Specification looks complete.
+As Jim does testing on the Tasks being completed as part of the
+Specification, they might file Bugs associated with the Specification.
+Paul sees the new Bug and assigns it to Carlos as part of an Iteration.
+Carlos fixes the Bug, which makes it appear on Jim's radar for
+testing. Jim tests and closes the bug.
+
+At some point the Specification looks complete. It is now time to do
+acceptance testing. Jim has the Branch deployed on the dev server and
+does Dev Testing. If it looks good, Jim changes the status on the
+Specification to "Dev Tested". Nat reviews the dev server. If it
+matches what he wanted, Nat marks it as "Customer Accepted". This leads
+to a merge request, asking the release manager to merge the branch when
+the next release is being prepared.
+
+Later, it is time to do a Release. The next step is to bundle up
+various branches and do Integration Testing on the staging server. The
+release manager takes the branches scheduled for this Release and
+merges them to the master. The master is then updated on the staging
+server and testing begins. If testing passes, the master is tagged with
+the release number.
+
+At some later point, certain deployed KARL sites are updated with that
+Release. Some of those KARL sites (OSF) are then re-tested to ensure
+that the tickets in that Release actually function correctly in
+production.
+
+OSF wants to know what's new in the production release. They go to the
+Roadmap and find the link for the Release. This page shows all the
+Specifications, Tasks, and Bugs in that Release.
+
+The Feature on the Feature Backlog has a change in status,
+showing that it is deployed. **Note: This will be hard to do since
+different KARLs have different deployment schedules.**
+
+Planning Scenarios
+==================
+
+The scenario above largely describes the linear process of an idea
+getting from start to finish. We should also describe how some of the
+give-and-take planning might be improved.
+
+Feature Backlog
+---------------
+
+- Make it very easy for less-technical business people to record the
+  minimum needed about an idea
+
+- Then, make it very productive to organize and re-organize the backlog
+  in useful ways
+
+- Primarily, do ordering instead of priority like SCRUM "product
+  backlogs"
+
+- Later, allow adding value with other artifacts (one or more
+  Specifications, and Tasks/Bugs associated with Specifications or the
+  Feature itself.) All these are traceable back to the Feature.
+
+- Organize the backlog by importance, estimated effort, timeframe,
+  component, status, and organization (who is requesting it)
+
+- Allow commenting on the Feature
+
+- We need a decent set of statuses and/or workflow so we know the
+  disposition of features (new, in discussion, rejected, deferred,
+  in specification, in development, in testing, released, deployed)
+
+- We are likely to have a very long list of cool ideas. We need to be
+  able to change our minds and play around with the sub-sub-pile that
+  matters.
+
+- This should be widely visible. We need to discourage each partner
+  maintaining separate lists of what is under discussion. Even if it is
+  the most preliminary of preliminary, get it on the list and make it
+  visible.
+
+Specifying
+----------
+
+- A very good workflow/status approach to make it clear when the key
+  people have agreed and work is ready to be commissioned
+
+- Loose, varying structure (don't try to make one size fits all)
+
+- Easy text format
+
+- Associate mockups with specifications (screenshot attachments,
+  remote URLs)
+
+- Decent facilities for tracking discussion, open questions, and
+  integrating updates
+
+- Versioning
+
+Budgeting
+---------
+
+- Guess at effort on Features in a quarter for the purposes of SOW
+  planning
+
+- Make it clear that this is *not* a system for timekeeping of actual
+  costs
+
+- This is most likely too ambitious of a first step with JIRA
+
+Scheduling
+----------
+
+- Dividing the big pile into the little pile
+
+- Finally allow us to target development and release (and perhaps
+  deployment) separately. Launchpad doesn't let us do that. Quite
+  cumbersome for us to know what is planned for, or went into, a release
+
+- Bulk operations
+
+- Capacity planning
+
+- Easily move stuff between Iterations
+
+- Hopefully Greenhopper can make this a very productive planning process
+
+Development
+-----------
+
+- Break the big pile down into a little pile, so developers can ignore
+  everything except what is on their plate
+
+- Have a good idea on how to bundle things into branches,
+  while avoiding overbundling
+
+- Try to give developers an ordered list within an iteration,
+  vs. a prioritized list
+
+- Possibly use workflow instead of status to bundle up business rules
+
+- Conducting ticket conversations by email is a must
+
+Tool Details
+============
+
+Some notes about fields we might want on each artifact.
+
+Feature
+-------
+
+- identifier, title, short description
+
+- importance, initial effort, remaining effort, development timeframe,
+  release timeframe,
+
+- creator, date created, date modified, organization
+
+- component, status
+
+Specification
+-------------
+
+- identifier, title, short description, text body,
+
+- attachments, "mockups", comments
+
+- creator, date created, date modified
+
+- importance, component, status, quarter, target release
+
+- links to related Tasks and Bugs
+
+- ordering (replace idea of "priority" with an ordered backlog)
