@@ -48,6 +48,17 @@ Goals
 
 - Over time, gradually adopt this process amongst the parties
 
+Non-Goals
+=========
+
+- Trying to do everything at once. (Instead, work in an emergent way.)
+
+- Doing all customer-specific work in core. Instead, promote
+  pluggability in code but also process.
+
+- Operations-related process and customer-specific issues (potentially
+  with privacy/security/confidentiality issues.)
+
 Overview
 ========
 
@@ -195,6 +206,11 @@ Feature Backlog
 
 - Then, make it very productive to organize and re-organize the backlog
   in useful ways
+
+- Need to have groupings within backlog (e.g. "In-Scope and Budgeted",
+  "May Happend Depending on Budget", "Wishlist")
+
+- Allow backlogs per organization/funder
 
 - Primarily, do ordering instead of priority like SCRUM "product
   backlogs"
