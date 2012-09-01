@@ -17,11 +17,21 @@ section that lists the drafts.
 
 The specification process itself documented in KIP-0000.
 
+In Progress
+===========
+
 .. toctree::
     :maxdepth: 1
 
     drafts/index.rst
     kip-0000
+
+Completed
+=========
+
+.. toctree::
+    :maxdepth: 1
+
     kip-0001
     kip-0002
     kip-0003

@@ -11,10 +11,9 @@ In Progress
 .. toctree::
     :maxdepth: 1
 
-    open-id
+    external-authentication
     searchbox
-    ux2-reskin2
-    karl-improvement-process
+    profile-pushdown
 
 Archived
 ========

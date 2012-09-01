@@ -1,6 +1,6 @@
-==========================================
-External Authentication with OpenID
-==========================================
+===================================
+External Authentication with OAuth2
+===================================
 
 .. note::
 
@@ -8,10 +8,14 @@ External Authentication with OpenID
   handle different flavors of staff. Instead, it is just the minimum
   get staff authentication outside of KARL.
 
-Call with Matt
-==============
 
--
+Scenario
+========
+
+Gina is a staff person at Oxfam. She is working remotely and isn't on a
+computer logged into ActiveDirectory.
+
+
 
 Notes
 =====
@@ -29,3 +33,9 @@ Notes
 - Changes to the CSV upload
 
 - Skinning the login screens
+
+
+
+- Yasso is skinned
+
+- Yasso can send people to a KARL URL
