@@ -15,6 +15,7 @@ Welcome to KARL's documentation!
    screens/index
    hosting/index
    specs/index
+   ltk/index
 
 Indices and tables
 ==================
