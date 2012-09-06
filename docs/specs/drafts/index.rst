@@ -14,6 +14,7 @@ In Progress
     external-authentication
     searchbox
     profile-pushdown
+    databases-tool
 
 Archived
 ========

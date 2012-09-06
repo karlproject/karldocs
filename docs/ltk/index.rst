@@ -192,6 +192,10 @@ Below are LTK components that might be slotted into this layer.
 
 - Feeds and syndication
 
+- Workflow (and workflow states leading to security)
+
+- Serving static files with FFE
+
 .. toctree::
    :maxdepth: 1
 
