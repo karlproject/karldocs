@@ -43,6 +43,9 @@ Implementation
 - Once someone logs in at the Yasso Oxfam, they are redirected back to
   the resource they were trying to reach in KARL.
 
+- Once that happens in KARL, they are given the same kind of "auth
+  ticket" cookie in KARL as if they used a KARL username/password
+
 Effort
 ======
 
@@ -69,3 +72,8 @@ Issues
 
 - *Skinning the Yasso screens*. You can work with Matt to make these
   look however you'd like.
+
+- *Users still have to exist in KARL*. Just like with Kerberos,
+  we aren't eliminating the step to make an account. Rather,
+  we're just making identity/authentication handled by a different
+  system.
