@@ -196,6 +196,8 @@ Below are LTK components that might be slotted into this layer.
 
 - Serving static files with FFE
 
+- Streaming blobs
+
 .. toctree::
    :maxdepth: 1
 

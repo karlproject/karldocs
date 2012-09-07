@@ -18,22 +18,43 @@ Databases Tool
 
 - Tagging, Advanced
 
+- Title, body
+
+Constraints
+===========
+
+- *Community Tool, hidden*. We will do this first as a tool that can be
+  added to a community. We will hide that tool so that it won't be
+  addable by regular staff. Instead, we (a KARL developer) might have to
+  manually attach this tool to the community.
+
+- *Security*. We will make this use Blog Tool security. That first
+  means it inherits community public/private and all that this entails.
+  Second, it means database entries will be editable only by the author
+  and by a KarlAdmin. If you want different security,
+  you'll have to use the (somewhat byzantine) "Edit ACL" screen.
+
+- *Text search*. For the fielded text search, we'll save time/money by
+  simply brute-forcing it and doing substring matching on that field.
+  We thus won't inherit any of the richer searching on a per-field basis.
+
 Ariadne Questions
 =================
 
-- Is a title/body needed?
+- Is a title/body needed? Answer: yes
 
 - Is this Wiki-like?
 
 - Is it the Blog Entry security model or the community content security
-  model?
+  model? Answer: blog
 
 - What does "projects and tag them" mean? Is "tag" just a way of saying
- "fill in fields"?
+ "fill in fields"? Answer: fill in fields
 
 - Is normal access model (KarlAdmin/KarlStaff/KarlAffiliate,
-  community member and moderator) ok?
+  community member and moderator) ok? Answer: yes
 
+- Do we need alert capabilities?
 
 Tres/Paul Questions
 ===================
@@ -56,6 +77,8 @@ Tres/Paul Questions
 
 Later
 =====
+
+- Richer indexing
 
 - Export as CSV
 

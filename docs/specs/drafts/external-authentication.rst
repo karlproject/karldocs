@@ -13,11 +13,18 @@ Scenario
 
 Gina is a staff person at Oxfam. She is working remotely and isn't on a
 computer logged into ActiveDirectory. Gina goes to a page in KARL and,
-since she hasn't logged in recently and isn't on AD,
-is sent to a login screen.
+since she hasn't logged in recently and isn't on AD, is sent to
+a login screen.
 
-Bob, an administrator for KARL, is asked to change the mapping for the
-AD username for a KARL user. Bob ....
+KARL doesn't know whether Gina is staff or affiliate. Since staff users
+no longer send KARL their login information, the login form needs the
+user to choose which direction to go. Gina clicks the button that says
+"Staff Users Login Here" and is sent to the Oxfam Login Service.
+
+On that screen at the Oxfam URL, Gina provides her username and
+password. This is checked against ActiveDirectory. When she
+successfully provides the username and password, she is sent back to
+the KARL page she was originally going to.
 
 Implementation
 ==============
@@ -38,7 +45,7 @@ Implementation
 - KARL and Oxfam's Yasso work together in an OAuth2 fashion.
 
 - Usernames in AD (and Kerberos) are mapped to usernames in KARL in a
-  flexible way (XXX Chris, help explain)
+  flexible way, albeit currently without a UI.
 
 - Once someone logs in at the Yasso Oxfam, they are redirected back to
   the resource they were trying to reach in KARL.
