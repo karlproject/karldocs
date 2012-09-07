@@ -49,7 +49,7 @@ Ariadne Questions
   model? Answer: blog
 
 - What does "projects and tag them" mean? Is "tag" just a way of saying
- "fill in fields"? Answer: fill in fields
+  "fill in fields"? Answer: fill in fields
 
 - Is normal access model (KarlAdmin/KarlStaff/KarlAffiliate,
   community member and moderator) ok? Answer: yes

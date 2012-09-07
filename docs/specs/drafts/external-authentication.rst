@@ -62,12 +62,6 @@ Oxfam.
 Issues
 ======
 
-- *Testing will be hard*. Your production KARL will point at an
-  ActiveDirectory that doesn't have any accounts for the KARL dev team.
-  We thus won't be able to do production testing or debugging for parts
-  that use the Kerberos transparent login or this external
-  authentication.)
-
 - *SSL*. You will certainly want SSL for the Yasso server at Oxfam.
   Most likely you will want an SSL certificate that is valid.
 

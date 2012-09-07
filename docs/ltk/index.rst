@@ -141,6 +141,8 @@ Below are LTK components that might be slotted into this layer.
 .. toctree::
    :maxdepth: 1
 
+   menus
+
 Gumball
 =======
 
@@ -152,13 +154,7 @@ Below are LTK components that might be slotted into this layer.
 
 - Grid
 
-- Collections
-
 - Search++
-
-- ACL widget
-
-- Timezones
 
 - Date formats
 
@@ -182,10 +178,6 @@ Below are LTK components that might be slotted into this layer.
 
 - Extensible profiles
 
-- Scheduled jobs
-
-- TTW Types
-
 - Admin View
 
 - Image/thumbnail service
@@ -197,6 +189,16 @@ Below are LTK components that might be slotted into this layer.
 - Serving static files with FFE
 
 - Streaming blobs
+
+- Scheduled jobs
+
+- TTW Types
+
+- Collections
+
+- ACL widget
+
+- Timezones
 
 .. toctree::
    :maxdepth: 1
