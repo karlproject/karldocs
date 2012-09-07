@@ -52,39 +52,24 @@ the hosting and development teams have simulated some of this.
 
 Below are LTK components that might be slotted into this layer.
 
-- Load balancing
-
-- SSL certificates
-
-- Logging
-
-- Monitoring
-
-- Backup
-
-- Replication
-
-- Blob storage
-
-- Snapshots
-
-- Production updates
-
-- PostgreSQL
-
-- Memcache
-
-- Redis
-
-- Kerberos
-
-- Text extraction
-
-- Supervisor
-
-
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
+
+    text-extraction
+    supervisor
+    load-balancing
+    production-updates
+    blob-storage
+    logging
+    monitoring
+    backup
+    snapshots
+    postgresql
+    memcache
+    redis
+    ssl-certificates
+    kerberos
+    replication
 
 Devops Base
 ============
@@ -94,27 +79,20 @@ Pyramid project we operate.
 
 Below are LTK components that might be slotted into this layer.
 
-- Buildout
-
-- Layouts
-
-- Juicing
-
-- Dev/staging/prod
-
-- Continuous Integration
-
-- karlserve
-
-- repoze.evolution
-
-- Graphite
-
-- Single-instance services
-
-
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
+
+    karlserve
+    buildout
+    layouts
+    relstorage-zodb
+    juicing
+    evolution
+    package-repository
+    dev-staging-production
+    single-instance-services
+    graphite
+    continuous-integration
 
 Substance D
 ===========
@@ -123,25 +101,15 @@ An existing project to bring Zope-like development to Pyramid.
 
 Below are LTK components that might be slotted into this layer.
 
-- Menus
-
-- i18n/l10n
-
-- Dump/reload
-
-- Deferred indexing
-
-- Catalog/search
-
-- Content types
-
-- Relationships
-
-
 .. toctree::
    :maxdepth: 1
 
    menus
+   i18n
+   dump-reload
+   deferred-indexing
+   content-types
+   relationships
 
 Gumball
 =======
@@ -152,56 +120,34 @@ and development.
 
 Below are LTK components that might be slotted into this layer.
 
-- Grid
-
-- Search++
-
-- Date formats
-
-- Form widgets
-
-- Ordered Folder
-
-- Authorization
-
-- Identity/Authentication
-
-- Mail-out
-
-- Mail-in
-
-- Versioning
-
-- Trash
-
-- Text extraction
-
-- Extensible profiles
-
-- Admin View
-
-- Image/thumbnail service
-
-- Feeds and syndication
-
-- Workflow (and workflow states leading to security)
-
-- Serving static files with FFE
-
-- Streaming blobs
-
-- Scheduled jobs
-
-- TTW Types
-
-- Collections
-
-- ACL widget
-
-- Timezones
-
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
+
+    search++
+    extensibility
+    mail-in
+    ttw-types
+
+    grid
+    date-formats
+    form-widgets
+    ordered-folders
+    authorization
+    identity-authentication
+    mail-out
+    versioning
+    trash
+    admin-view
+    image-service
+    feeds-syndication
+    workflow
+    static-files
+    streaming-blobs
+    extensible-profiles
+    scheduled-jobs
+    collections
+    acl-widget
+    timezones
 
 Popper
 ======
@@ -212,28 +158,21 @@ applications. High affinity with KARL governance.
 
 Below are LTK components that might be slotted into this layer.
 
-- LiveSearch
-
-- Chatter and social
-
-- Search+++ (manual boosting, keywords, etc.)
-
-- Community
-
-- Blog
-
-- Wiki
-
-- Calendar
-
-- File
-
-- Mailing List
-
-- Analytics
-
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
+
+    livesearch
+    chatter
+    relevance-tuning
+    community
+    blog
+    wiki
+    calendar
+    file
+    folder
+    mailing-list
+    analytics
+    social
 
 KARL
 ====
@@ -242,32 +181,21 @@ The KARL application itself.
 
 Below are LTK components that might be slotted into this layer.
 
-- UX2
-
-- Intranet
-
-- Network News
-
-- Network Events
-
-- Forums
-
-- Reference Manual
-
-- GSA
-
-- Invitations
-
-- Content Feeds
-
-- Staff Calendar
-
-- Low-bandwidth mode
-
-- User deactivation
-
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
+
+    ux2
+    intranets
+    network-news
+    network-events
+    forums
+    reference-manuals
+    gsa-sync
+    invitations
+    content-feeds
+    staff-calendar
+    low-bandwidth-mode
+    user-deactivation
 
 Customer/Customization
 ======================
