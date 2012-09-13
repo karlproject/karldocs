@@ -105,6 +105,7 @@ Below are LTK components that might be slotted into this layer.
    :maxdepth: 1
 
    menus
+   catalog-search
    i18n
    dump-reload
    deferred-indexing

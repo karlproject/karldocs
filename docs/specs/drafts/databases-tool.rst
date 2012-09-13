@@ -2,23 +2,70 @@
 Databases Tool
 ==============
 
-- Uses KARL security (users, security model)
+Small first step towards site-specific content types.
 
-- Tab on a community
+Specifications
+==============
 
-- Tab is called "Databases", allows adding a Folder for each Database
+- We will develop a new community tool that adds a "DATABASES" tab to a
+  community
 
-- Searchable at KARL and community level
+- In Ariadne's KARL site, we will manually add a certain tool to a
+  certain community, hiding the presence of this tool from all other
+  communities
 
-- Alerts contain fields
+- The tool will contain a folder "X Database" containing this
+  database project
 
-- Constrained vocabularies and datatypes on add/edit
+- The tool will not allow, the root, adding/editing/deleting anything.
+  We will manually add "X Database" to the tool folder.
 
-- Derived from Page/WikiPage
+- The X Database database/folder will have a title and
+  description.
 
-- Tagging, Advanced
+- Inside this folder, the Add menu allows only one content type:
+  "X Project"
 
-- Title, body
+- The action menu for the X Database folder contains: "Add
+  X Project"
+
+- The X Database screen has a search column on the right and a
+  listing of entries on the right, like the Search Results screen
+
+- The "X Project" content type is based on the Page content
+  type, with extra fields:
+
+  - Title
+
+  - Body text
+
+  - Donor Name (could be a foundation or a person)
+
+  - Point of Contact
+
+  - Contact information
+
+  - Recipient of grant (NGO, organisation)
+
+  - Grant purpose (pre-populated check boxes, + 'Other' field to fill
+    in)
+
+  - Location of Impact (city, [county/state] country)
+
+  - Amount of grant (in Euros)
+
+  - Keywords (pre-populated check boxes, + 'Other' field to fill in)
+
+- The "Grant Purpose" and "Keywords" come from a vocabulary that is
+  stored in the software (meaning, changes to this vocabulary require a
+  developer and a production update)
+
+- The KARL-wide and community-wide search uses only title for now as
+  searchable text
+
+- No email-alerts or KARL-style tagging
+
+- UX1 and UX2 screens (lest we forget)
 
 Constraints
 ===========
@@ -38,50 +85,3 @@ Constraints
   simply brute-forcing it and doing substring matching on that field.
   We thus won't inherit any of the richer searching on a per-field basis.
 
-Ariadne Questions
-=================
-
-- Is a title/body needed? Answer: yes
-
-- Is this Wiki-like?
-
-- Is it the Blog Entry security model or the community content security
-  model? Answer: blog
-
-- What does "projects and tag them" mean? Is "tag" just a way of saying
-  "fill in fields"? Answer: fill in fields
-
-- Is normal access model (KarlAdmin/KarlStaff/KarlAffiliate,
-  community member and moderator) ok? Answer: yes
-
-- Do we need alert capabilities?
-
-Tres/Paul Questions
-===================
-
-- UX1 vs. UX2
-
-- Responsive design layouts
-
-- In the beginning, needs to be conditional, tab only addable on one
-  community in one KARL
-
-- Content migration on schema change
-
-- Use a grid with filters?
-
-- Need fielded text search on custom fields...does this mean custom
-  catalog?
-
-- Running as separate app, shared login (as well as, CRM project)
-
-Later
-=====
-
-- Richer indexing
-
-- Export as CSV
-
-- SGT
-
-- Faceted-style drill-down
