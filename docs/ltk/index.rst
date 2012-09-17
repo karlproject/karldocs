@@ -125,7 +125,8 @@ Below are LTK components that might be slotted into this layer.
     :maxdepth: 1
 
     search++
-    extensibility
+    extensible-ui
+    extensible-content-types
     mail-in
     ttw-types
 
@@ -144,7 +145,6 @@ Below are LTK components that might be slotted into this layer.
     workflow
     static-files
     streaming-blobs
-    extensible-profiles
     scheduled-jobs
     collections
     acl-widget
