@@ -217,3 +217,5 @@ man_pages = [
     ('index', 'karl', u'KARL Documentation',
      [u'Open Society Foundation'], 1)
 ]
+
+todo_include_todos = True
