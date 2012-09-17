@@ -1,3 +1,5 @@
+.. _extensible-content-types:
+
 ==================================
 Extensible Content Types Component
 ==================================

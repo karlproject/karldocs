@@ -1,3 +1,5 @@
+.. _extensible-ui:
+
 ==========================
 Extensible User Interfaces
 ==========================
