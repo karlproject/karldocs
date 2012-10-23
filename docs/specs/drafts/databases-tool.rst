@@ -44,8 +44,8 @@ Features
 - Export as CSV
 
 - Email alert to moderators when a new form is submitted to a
-  community database tool (this is new data, e.g., a new grant added to
-  database)
+  community database tool (this is new data, e.g., a new grant added
+  to database)
 
 - The "address" field type shows up in the report as link that says
   "View Map". This opens a new browser window pointed at Google Maps
