@@ -2,86 +2,111 @@
 Databases Tool
 ==============
 
-Small first step towards site-specific content types.
+Simple, limited step towards defining forms that can be completed and
+analysed.
 
-Specifications
-==============
+Goals
+=====
 
-- We will develop a new community tool that adds a "DATABASES" tab to a
-  community
-
-- In Ariadne's KARL site, we will manually add a certain tool to a
-  certain community, hiding the presence of this tool from all other
+- KARL sites can collect and download custom information from certain
   communities
 
-- The tool will contain a folder "X Database" containing this
-  database project
+- Available initially for only one KARL partner, but an ongoing project
+  that can incrementally add new features and become part of the core
 
-- The tool will not allow, the root, adding/editing/deleting anything.
-  We will manually add "X Database" to the tool folder.
+- In this stage, performance/productivity for 20 "databases" per KARL
+  with 150 or so filled in forms per "database"
 
-- The X Database database/folder will have a title and
-  description.
+Features
+========
 
-- Inside this folder, the Add menu allows only one content type:
-  "X Project"
+- A new type of community tool called "DATABASES" that can be added to
+  any community
 
-- The action menu for the X Database folder contains: "Add
-  X Project"
+- Each "DATABASE" tool in each community has "Libraries" (i.e. projects)
+  with Forms
 
-- The X Database screen has a search column on the right and a
-  listing of entries on the right, like the Search Results screen
+- Each project is searchable across KARL (not the filled in forms,
+  just the project itself)
 
-- The "X Project" content type is based on the Page content
-  type, with extra fields:
+- Community members can manage their own completed forms (add, view,
+  edit, delete) but for forms completed by other community members,
+  they can only search, view, and download
 
-  - Title
+- Moderators can see completed forms, as well as: search forms,
+  download form results, view a form, edit and delete a form
 
-  - Body text
+- Moderators (but most likely, some power user) can define new
+  libraries and new forms
 
-  - Donor Name (could be a foundation or a person)
+- Some fields can have controlled vocabulary
 
-  - Point of Contact
+- Export as CSV
 
-  - Contact information
+- Email alert to moderators when a new form is submitted to a
+  community database tool (this is new data, e.g., a new grant added to
+  database)
 
-  - Recipient of grant (NGO, organisation)
+- The "address" field type shows up in the report as link that says
+  "View Map". This opens a new browser window pointed at Google Maps
+  with that address shown. No attempt will be made to ensure the
+  address that was typed in is valid. Just one long sequence,
+  as you would type it into Google.
 
-  - Grant purpose (pre-populated check boxes, + 'Other' field to fill
-    in)
+- You can click on an item in the listing and see a page for just that
+  completed form
 
-  - Location of Impact (city, [county/state] country)
+- Numeric columns (integer, decimal, currency) can have an optional
+  "total" at the bottom of the column
 
-  - Amount of grant (in Euros)
+Security
+========
 
-  - Keywords (pre-populated check boxes, + 'Other' field to fill in)
+Community members can create form entries, and view/edit/delete their
+own entries.
 
-- The "Grant Purpose" and "Keywords" come from a vocabulary that is
-  stored in the software (meaning, changes to this vocabulary require a
-  developer and a production update)
+Community moderators can list form entries, search, and download as
+CSV. They can also view/add/edit/delete form entries.
 
-- The KARL-wide and community-wide search uses only title for now as
-  searchable text
+Community moderators can also add/edit/delete Libraries and Forms.
 
-- No email-alerts or KARL-style tagging
+Search
+=======
 
-- UX1 and UX2 screens (lest we forget)
+For the fielded text search, we'll save time/money by simply
+brute-forcing it and doing substring matching on that field.  We thus
+won't inherit any of the richer searching on a per-field basis.
+
+- A checkbox on fields saying whether the field should be on search form
+
+- No integration into site-wide search
 
 Constraints
 ===========
 
-- *Community Tool, hidden*. We will do this first as a tool that can be
-  added to a community. We will hide that tool so that it won't be
-  addable by regular staff. Instead, we (a KARL developer) might have to
-  manually attach this tool to the community.
+- No attempt to limit community members to filling out a form repeatedly
 
-- *Security*. We will make this use Blog Tool security. That first
-  means it inherits community public/private and all that this entails.
-  Second, it means database entries will be editable only by the author
-  and by a KarlAdmin. If you want different security,
-  you'll have to use the (somewhat byzantine) "Edit ACL" screen.
+- Once data starts coming in, you can't make certain structural changes
+  on forms. However, we'll try to allow all but the most problematic of
+  changes.
 
-- *Text search*. For the fielded text search, we'll save time/money by
-  simply brute-forcing it and doing substring matching on that field.
-  We thus won't inherit any of the richer searching on a per-field basis.
+- No approval workflow
 
+- Use the staging site for testing
+
+- No versioning, email alerts, or tagging
+
+- No UX2 version of the UI
+
+- Only one security model
+
+- Field types: string, integer, decimal, date, choice, richtext,
+  address, euros (decimal with 2 digits and the symbol in front)
+
+- Only targeted (email, security, etc.) to members in a community
+
+Questions
+=========
+
+- Do you want community members to be able to see form entries filled
+  out by other community members?
