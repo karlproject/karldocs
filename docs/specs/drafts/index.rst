@@ -15,6 +15,7 @@ In Progress
     searchbox
     profile-pushdown
     databases-tool
+    gsa-sync
 
 Archived
 ========

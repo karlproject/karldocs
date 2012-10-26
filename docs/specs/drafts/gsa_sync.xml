@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users timestamp="2012-10-26 08:32:01">
+    <user>
+        <user_id>7321</user_id>
+        <username>jdoe</username>
+        <password>SHA1:longstuffhere</password>
+        <firstname>John</firstname>
+        <lastname>Doe</lastname>
+        <email>jdoe@x.org</email>
+        <phone>+0055 5 555 5555</phone>
+        <extension>117</extension>
+        <department>Some Department</department>
+        <position>Director of Some &amp; Position</position>
+        <organization>My Organization</organization>
+        <location/>
+        <country>JP</country>
+        <website>http://www.somesite.org</website>
+        <languages>English, French</languages>
+        <office>Some Office</office>
+        <room_no>101</room_no>
+        <home_path>intranets/main</home_path>
+        <inactive>0</inactive>
+        <categories>
+            <category id="entities" title="Entities">
+                <category_item>
+                    <id>1534</id>
+                    <title>Some Office</title>
+                    <hcard>
+                        <fn>Some Office</fn>
+                        <org>Some Office</org>
+                        <url>http://some.url</url>
+                        <note/>
+                        <adrs>
+                            <adr type="Main">
+                                <street-address>123 Main Street
+                                </street-address>
+                                <extended-address/>
+                                <locality>Placeville</locality>
+                                <region/>
+                                <postal-code/>
+                                <country-name>Macedonia</country-name>
+                            </adr>
+                        </adrs>
+                        <tels>
+                            <tel type="Tel">+55 555 55555</tel>
+                        </tels>
+                        <emails>
+                            <email type="Main">info@some.org</email>
+                        </emails>
+                    </hcard>
+                </category_item>
+            </category>
+            <category id="offices" title="Offices">
+                <category_item>
+                    <id>1449</id>
+                    ...
+                </category_item>
+            </category>
+            <category id="departments" title="Departments">
+                <category_item>
+                    <id>1509</id>
+                </category_item>
+            </category>
+        </categories>
+        <groups>
+            <group>
+                <id>685</id>
+                <title>group.KarlStaff</title>
+            </group>
+        </groups>
+    </user>
+</users>
