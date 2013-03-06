@@ -33,8 +33,8 @@ Specifications
 Implementation
 ==============
 
-- Tres will add a dummy resource in the main KARL source code that is
-  the target for the portlet's adapter
+- Tres will add support in the main KARL source code for having
+  portlets use optional named adapters.
 
 - Everything else will be in the Ariadne customization package
 
