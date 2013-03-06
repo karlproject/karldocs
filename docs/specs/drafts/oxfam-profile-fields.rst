@@ -57,6 +57,10 @@ Implementation
 - As such, it is up to Oxfam to test whether future KARL updates
   impact this feature
 
+- This project is complete when it is accepted on multikarl staging.
+  Getting into production, and bug fixing after "acceptance",
+  is a separate matter and statement of work.
+
 Questions
 =========
 
