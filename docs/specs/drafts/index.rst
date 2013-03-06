@@ -16,6 +16,8 @@ In Progress
     profile-pushdown
     databases-tool
     gsa-sync
+    oxfam-profile-fields
+    public-blogposts-portlet
 
 Archived
 ========
