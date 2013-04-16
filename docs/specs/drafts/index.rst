@@ -18,6 +18,7 @@ In Progress
     gsa-sync
     oxfam-profile-fields
     public-blogposts-portlet
+    easier-people-config
 
 Archived
 ========
