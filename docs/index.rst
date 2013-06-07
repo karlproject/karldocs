@@ -6,12 +6,10 @@
 Welcome to KARL's documentation!
 ================================
 
-
-
-
 .. toctree::
    :maxdepth: 2
 
+   karl-spec/index
    screens/index
    hosting/index
    specs/index
