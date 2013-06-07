@@ -8,7 +8,9 @@ People
 
 - Listings filtered by letter or text
 
-- Table, picture, print and download views
+- Table, picture, print, and download views
+
+- Reports can be given a distribution email list
 
 - Sortable, high-performance grid
 

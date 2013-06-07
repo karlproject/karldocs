@@ -6,3 +6,4 @@ Calendar
 
 - Staff calendar
 
+- Sticky

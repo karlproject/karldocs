@@ -6,3 +6,8 @@ Blogs
 
 - Comments
 
+- Email-in
+
+- Attachments
+
+- Archives portlet

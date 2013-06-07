@@ -8,3 +8,10 @@ Folders and Files
 
 - Bulk upload
 
+- Edit titles
+
+- Icons based on file type
+
+- Last updated and tag information on detail screen
+
+- Can be any type of desktop content

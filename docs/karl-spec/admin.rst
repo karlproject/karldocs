@@ -1,6 +1,6 @@
-===========================
-Access Control Lists (ACLs)
-===========================
+==========
+Admin View
+==========
 
 - Delete content
 
@@ -13,3 +13,7 @@ Access Control Lists (ACLs)
 - Quarantine
 
 - Rename users
+
+- Not all functions are in "Admin" (e.g. ``Add User``)
+
+- Analytics

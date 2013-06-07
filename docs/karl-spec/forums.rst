@@ -6,3 +6,4 @@ Forums
 
 - Topics and replies
 
+- Not integrated with email alerts
